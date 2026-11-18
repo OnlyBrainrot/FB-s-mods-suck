@@ -1,0 +1,61 @@
+name: Build mods (Windows)
+
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - builds
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        mod: [frame-window-counter, auto-deco]
+
+    name: ${{ matrix.mod }}
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        id: build
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          path: ${{ matrix.mod }}
+          sdk: given
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.mod }}
+          path: ${{ steps.build.outputs.build-output }}/*.geode
+
+  # Also commit the .geode files to the "builds" branch, so they can be
+  # downloaded with plain git (and straight from the repo page).
+  publish:
+    name: Publish to builds branch
+    runs-on: ubuntu-latest
+    needs: [build]
+
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: out
+          merge-multiple: true
+
+      - name: Push
+        run: |
+          cd out
+          ls -la
+          git init -q -b builds
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          printf 'Built from %s\n' "${{ github.sha }}" > BUILT_FROM.txt
+          git add -A
+          git commit -q -m "Windows builds from ${{ github.sha }}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" builds

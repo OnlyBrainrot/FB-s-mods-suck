@@ -1,0 +1,171 @@
+{
+    "geode": "6.0.0-alpha.2",
+    "gd": {
+        "win": "2.2091",
+        "android": "2.2091",
+        "mac": "2.2091"
+    },
+    "id": "opensource.frame-window-counter",
+    "name": "Frame Window Counter",
+    "version": "v2.1.1",
+    "developer": "Community",
+    "description": "Load a macro, count the frame window of every input, and show them as circles with a running tally. Can render the result to video.",
+    "tags": ["gameplay", "utility", "offline"],
+    "settings": {
+        "main-title": {
+            "type": "title",
+            "name": "Macro"
+        },
+        "macro-file": {
+            "type": "file",
+            "name": "Macro file",
+            "description": "The macro to analyse. Supported: <cy>.gdr</c> and <cy>.gdr2</c>, GDR <cy>.json</c>, Silicate <cy>.slc</c>, and this mod's own <cy>.fwc.json</c>. The format is detected from the file itself, not its name.",
+            "default": "",
+            "control": {
+                "dialog": "open",
+                "filters": [
+                    {
+                        "description": "Macro files",
+                        "files": ["*.gdr", "*.gdr2", "*.slc", "*.json", "*.fwc"]
+                    }
+                ]
+            }
+        },
+        "mode": {
+            "type": "string",
+            "name": "Mode",
+            "description": "<cy>Play macro</c>: this mod plays the macro and shows the windows.\n<cy>Overlay only</c>: another bot plays the macro; this mod only shows the windows.\n<cy>Count windows</c>: works out the frame window of every input on the next attempt, saves them next to the macro, then switches back to Play macro.\n<cy>Render video</c>: plays the macro and writes a video with the overlay through ffmpeg, then switches back to Play macro.",
+            "default": "Off",
+            "one-of": ["Off", "Play macro", "Overlay only", "Count windows", "Render video"]
+        },
+        "frame-offset": {
+            "type": "int",
+            "name": "Frame offset",
+            "description": "Shifts every input by this many ticks. Different bots number frames slightly differently; if the macro dies early when played back, try 1 or -1.",
+            "default": 0,
+            "min": -8,
+            "max": 8
+        },
+        "overlay-title": {
+            "type": "title",
+            "name": "Overlay"
+        },
+        "markers": {
+            "type": "bool",
+            "name": "Circles",
+            "description": "Draw a circle with the frame window where each input happens.",
+            "default": true
+        },
+        "show-releases": {
+            "type": "bool",
+            "name": "Circles for releases",
+            "description": "Also mark button releases (smaller circles).",
+            "default": true
+        },
+        "max-shown-window": {
+            "type": "int",
+            "name": "Largest window to mark",
+            "description": "Inputs with a bigger frame window than this get no circle.",
+            "default": 10,
+            "min": 1,
+            "max": 30
+        },
+        "marker-seconds": {
+            "type": "float",
+            "name": "Circle lifetime (seconds)",
+            "description": "How long each circle stays, in level time. 0 keeps them until the attempt restarts.",
+            "default": 1.5,
+            "min": 0.0,
+            "max": 30.0
+        },
+        "marker-size": {
+            "type": "float",
+            "name": "Circle size",
+            "default": 1.0,
+            "min": 0.3,
+            "max": 4.0,
+            "control": {
+                "slider": true,
+                "slider-step": 0.05
+            }
+        },
+        "hud": {
+            "type": "bool",
+            "name": "Tally",
+            "description": "Show how many 1-frame, 2-frame, ... inputs have gone by out of the total, in the top left.",
+            "default": true
+        },
+        "hud-max-window": {
+            "type": "int",
+            "name": "Largest window in the tally",
+            "default": 4,
+            "min": 1,
+            "max": 10
+        },
+        "count-title": {
+            "type": "title",
+            "name": "Counting"
+        },
+        "max-window": {
+            "type": "int",
+            "name": "Stop counting at",
+            "description": "Windows are counted up to this many frames; anything wider is recorded as this value and shown with a plus.",
+            "default": 10,
+            "min": 2,
+            "max": 30
+        },
+        "horizon": {
+            "type": "int",
+            "name": "Survival check (ticks)",
+            "description": "After moving an input, the run has to survive until this many ticks past the following input for that position to count. 48 ticks is 0.2 seconds.",
+            "default": 48,
+            "min": 1,
+            "max": 2400
+        },
+        "count-releases": {
+            "type": "bool",
+            "name": "Count releases",
+            "description": "Count the frame window of button releases as well as presses.",
+            "default": true
+        },
+        "use-checkpoints": {
+            "type": "bool",
+            "name": "Use practice checkpoints",
+            "description": "Much faster: each test replays from a recent checkpoint instead of the start of the level. Turn off if results look wrong on a level; counting will then take far longer.",
+            "default": true
+        },
+        "count-speed": {
+            "type": "int",
+            "name": "Counting speed (ticks per frame)",
+            "description": "How many physics ticks to simulate per drawn frame while counting. Higher is faster but makes the game less responsive.",
+            "default": 400,
+            "min": 10,
+            "max": 5000
+        },
+        "render-title": {
+            "type": "title",
+            "name": "Video"
+        },
+        "ffmpeg-path": {
+            "type": "file",
+            "name": "ffmpeg",
+            "description": "Path to the ffmpeg program. Leave empty if ffmpeg is on your PATH. Windows and macOS only.",
+            "default": "",
+            "control": {
+                "dialog": "open"
+            }
+        },
+        "render-fps": {
+            "type": "int",
+            "name": "Video frame rate",
+            "default": 60,
+            "min": 24,
+            "max": 240
+        },
+        "render-song": {
+            "type": "bool",
+            "name": "Add the level's song",
+            "default": true
+        }
+    }
+}

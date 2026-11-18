@@ -1,0 +1,177 @@
+{
+    "geode": "6.0.0-alpha.2",
+    "gd": {
+        "win": "2.2091",
+        "android": "2.2091",
+        "mac": "2.2091"
+    },
+    "id": "opensource.auto-deco",
+    "name": "Auto Deco",
+    "version": "v1.1.3",
+    "developer": "Community",
+    "description": "One-click fill, outline and glow for the blocks you select in the editor.",
+    "tags": ["editor", "utility", "offline"],
+    "settings": {
+        "layers-title": {
+            "type": "title",
+            "name": "What to add"
+        },
+        "fill": {
+            "type": "bool",
+            "name": "Fill",
+            "description": "Cover every selected block with a flat coloured square.",
+            "default": true
+        },
+        "outline": {
+            "type": "bool",
+            "name": "Outline",
+            "description": "Draw a line along every block side that faces empty space, and close the gaps in inside corners.",
+            "default": true
+        },
+        "glow": {
+            "type": "bool",
+            "name": "Glow",
+            "description": "Wrap the outside of the selected shape in glow, with proper pieces for outside and inside corners.",
+            "default": true
+        },
+        "style-title": {
+            "type": "title",
+            "name": "Style"
+        },
+        "outline-style": {
+            "type": "string",
+            "name": "Outline style",
+            "description": "Which set of outline objects to use. Custom uses the object IDs from the Advanced section.",
+            "default": "Classic",
+            "one-of": ["Classic", "Neon", "Thick", "Custom"]
+        },
+        "glow-size": {
+            "type": "string",
+            "name": "Glow size",
+            "description": "Which set of glow objects to use. Custom uses the object IDs from the Advanced section.",
+            "default": "Medium",
+            "one-of": ["Small", "Medium", "Large", "Custom"]
+        },
+        "colors-title": {
+            "type": "title",
+            "name": "Colour channels"
+        },
+        "fill-color": {
+            "type": "int",
+            "name": "Fill channel",
+            "description": "Colour channel ID for the fill. 1-999 are your own channels. 1010 is Black, 1011 is White, 1004 is Obj.",
+            "default": 1010,
+            "min": 1,
+            "max": 1101
+        },
+        "outline-color": {
+            "type": "int",
+            "name": "Outline channel",
+            "description": "Colour channel ID for the outline. 1-999 are your own channels. 1010 is Black, 1011 is White, 1004 is Obj.",
+            "default": 1011,
+            "min": 1,
+            "max": 1101
+        },
+        "glow-color": {
+            "type": "int",
+            "name": "Glow channel",
+            "description": "Colour channel ID for the glow. 1-999 are your own channels. 1010 is Black, 1011 is White, 1004 is Obj.",
+            "default": 1011,
+            "min": 1,
+            "max": 1101
+        },
+        "placement-title": {
+            "type": "title",
+            "name": "Placement"
+        },
+        "block-z-layer": {
+            "type": "string",
+            "name": "Fill and outline Z layer",
+            "description": "Fill sits at Z order 1 and the outline at Z order 2 on this layer, so they cover the layout blocks underneath.",
+            "default": "T1",
+            "one-of": ["B4", "B3", "B2", "B1", "T1", "T2", "T3"]
+        },
+        "glow-z-layer": {
+            "type": "string",
+            "name": "Glow Z layer",
+            "default": "B2",
+            "one-of": ["B4", "B3", "B2", "B1", "T1", "T2", "T3"]
+        },
+        "editor-layer": {
+            "type": "int",
+            "name": "Editor layer",
+            "description": "Editor layer the generated objects are put on, so decoration can be hidden or locked separately from the layout.",
+            "default": 0,
+            "min": 0,
+            "max": 9999
+        },
+        "no-touch": {
+            "type": "bool",
+            "name": "No Touch",
+            "description": "Mark generated objects as No Touch so decoration can never change the gameplay.",
+            "default": true
+        },
+        "advanced-title": {
+            "type": "title",
+            "name": "Advanced"
+        },
+        "auto-orient": {
+            "type": "bool",
+            "name": "Detect piece orientation",
+            "description": "Look at each decoration sprite to work out which way it faces before placing it. Leave on unless pieces come out wrong.",
+            "default": true
+        },
+        "max-objects": {
+            "type": "int",
+            "name": "Object limit per run",
+            "description": "Refuse to run if a single press would add more objects than this.",
+            "default": 20000,
+            "min": 100,
+            "max": 200000
+        },
+        "fill-object": {
+            "type": "int",
+            "name": "Fill object ID",
+            "default": 211,
+            "min": 1,
+            "max": 99999
+        },
+        "custom-outline-edge": {
+            "type": "int",
+            "name": "Custom outline: edge ID",
+            "description": "Used when Outline style is Custom. A straight line along one side of a block.",
+            "default": 468,
+            "min": 1,
+            "max": 99999
+        },
+        "custom-outline-inner": {
+            "type": "int",
+            "name": "Custom outline: inside corner ID",
+            "description": "Used when Outline style is Custom. The small piece that closes an inside corner.",
+            "default": 472,
+            "min": 1,
+            "max": 99999
+        },
+        "custom-glow-edge": {
+            "type": "int",
+            "name": "Custom glow: edge ID",
+            "default": 503,
+            "min": 1,
+            "max": 99999
+        },
+        "custom-glow-outer": {
+            "type": "int",
+            "name": "Custom glow: outside corner ID",
+            "default": 504,
+            "min": 1,
+            "max": 99999
+        },
+        "custom-glow-inner": {
+            "type": "int",
+            "name": "Custom glow: inside corner ID",
+            "default": 505,
+            "min": 1,
+            "max": 99999
+        }
+    }
+}

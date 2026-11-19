@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 jobs:
   build:
@@ -59,3 +60,30 @@ jobs:
           git add -A
           git commit -q -m "Windows builds from ${{ github.sha }}"
           git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" builds
+
+  # If a build fails, publish the job logs to the "logs" branch.
+  logs:
+    name: Publish failure logs
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: failure()
+
+    steps:
+      - name: Push logs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir out && cd out
+          api="https://api.github.com/repos/${{ github.repository }}"
+          curl -sSL -H "Authorization: Bearer $GH_TOKEN" "$api/actions/runs/${{ github.run_id }}/jobs?per_page=50" > jobs.json
+          for id in $(jq -r '.jobs[] | select(.conclusion == "failure") | .id' jobs.json); do
+            curl -sSL -H "Authorization: Bearer $GH_TOKEN" "$api/actions/jobs/$id/logs" -o "job-$id.log"
+            grep -n -i -E "error|fatal|warning C" "job-$id.log" | head -300 > "job-$id.errors.txt" || true
+          done
+          printf 'Logs from run %s (%s)\n' "${{ github.run_id }}" "${{ github.sha }}" > README.txt
+          git init -q -b logs
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Failure logs for ${{ github.sha }}"
+          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" logs

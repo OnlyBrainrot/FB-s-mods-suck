@@ -1,32 +1,46 @@
 # Auto Deco
 
-A Geode mod for Geometry Dash 2.2091 (Geode v6.0.0-alpha.2). Select solid blocks in the editor, press one button, and it adds fill, outline and glow around them.
+A Geode mod for Geometry Dash 2.2091 (Geode 6.0.0-alpha.2). Pick a style, preview it on your level, keep it.
 
-## How it works
+## Using it
 
-- The selected blocks are snapped onto a 30-unit grid (the grid phase is taken from the selection, so off-grid structures work).
-- `src/deco_core.hpp` decides where pieces go: an outline line on every exposed side, a corner dot in every concave corner, and glow in the surrounding empty cells (straight, outside-corner or inside-corner depending on the neighbours).
-- The mod does not hard-code which way a decoration sprite faces. It renders each piece once, measures where its pixels are, and rotates and offsets the piece so the right side touches the block. That is why custom object IDs work.
-- The result is pasted as a single undo step.
+Open a level in the editor and press **Auto Deco** in the pause menu (or the pink button next to Copy). Choose a style with the arrows, adjust its four colours (Background, Blocks, Main, Details), choose what to add, and press **Preview** or **Decorate**. A preview shows a bar with **Keep**, **Undo** and **Other style**.
 
-Slopes, slabs and blocks rotated off-axis are skipped.
+- **Blocks**: fill (object 211), outline and glow on every exposed edge and corner.
+- **Details**: decoration on top faces, under ceilings (only where there are a few empty cells below), out of walls, and along the ground.
+- **Background**: objects scattered behind the level on B4.
+- **Colours**: set as the level's starting colours, plus colour triggers at the start as a backup.
+- **Song pulses**: pulse triggers on each beat for the style's chosen channels, and on every 4th beat for the background.
+- **Only selection**: decorate only the selected blocks instead of the whole level.
+- **Shuffle**: a different random arrangement of details and background.
+- **Remove**: deletes everything Auto Deco added (undoable).
 
-## Node IDs
+Everything added is tagged with the **Auto Deco group** (9999 by default), which is how it replaces and removes its own work. It uses colour channels 990-995 by default. Change both in the settings if your level already uses them.
 
-Not required. If the Node IDs mod is installed, the button joins the copy/paste menu's layout; otherwise it is placed just left of the Copy button's row.
+## Song sync
 
-## Object IDs used
+Beat source (settings): **Auto** uses the level's guidelines if there are at least 8, otherwise it analyses the song. Analysis decodes the song with FMOD on a background thread and runs an onset-envelope beat tracker (`src/beats.hpp`). Fast drum and bass is sometimes detected at half tempo; use **Fixed tempo** for that.
 
-| Set | Edge | Outside corner | Inside corner |
-| --- | --- | --- | --- |
-| Outline: Classic | 468 | - | 472 |
-| Outline: Neon | 1191 | - | 1194 |
-| Outline: Thick | 1202 | - | 1205 |
-| Glow: Small | 1292 | 1009 | 1010 |
-| Glow: Medium | 503 | 504 | 505 |
-| Glow: Large | 1011 | 1012 | 1013 |
+## Styles
 
-Fill is object 211. All of these can be overridden in the settings.
+Neon Night, Inferno, Frostbite, Overgrowth, Factory, Void, Synthwave, Monochrome, Candy, Abyss, Golden Hour, Cyber Grid, Starfield, Toxic, Royal, Sakura, Blackout, Storm, Retro Arcade, Bloodmoon. They are defined in `src/styles.hpp`; adding one is a few lines.
+
+Details only use objects the game reports as pure decoration, so nothing with a hitbox is ever added.
+
+## Limits
+
+- Only full-size solid blocks on the grid are decorated; slopes, slabs, spikes and rotated blocks are skipped.
+- Not yet tested in the game.
+
+## Tests
+
+The placement, style and beat code has no game dependency:
+
+```
+c++ -std=c++20 -O2 -I src test/core_test.cpp -o t1 && ./t1
+c++ -std=c++20 -O2 -I src test/build_test.cpp -o t2 && ./t2
+c++ -std=c++20 -O2 -I src test/beats_test.cpp -o t3 && ./t3
+```
 
 ## Build
 

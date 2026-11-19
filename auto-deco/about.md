@@ -1,19 +1,20 @@
 # Auto Deco
 
-Turns a plain layout into a decorated block design in one click.
+Build the layout, Auto Deco decorates it.
 
-1. In the editor, select the solid blocks you want decorated.
-2. Press the **Auto Deco** button (with the copy/paste buttons).
-3. Press **Decorate**.
+1. Open your level in the editor.
+2. Press **Auto Deco** (in the pause menu, or the pink button next to Copy).
+3. Pick one of the **20 styles** with the arrows and change its four colours if you like.
+4. Press **Preview** to see it on your level. Look around, then **Keep**, **Undo** or **Other style**. **Decorate** applies straight away.
 
-It adds, on top of your layout:
+What a style adds:
 
-- **Fill**: a flat coloured square over every block.
-- **Outline**: a line on every side that faces empty space, with inside corners closed.
-- **Glow**: glow around the outside of the shape, using the proper outside-corner and inside-corner pieces.
+- **Blocks**: fill, outline and glow around every structure.
+- **Details**: thorns, grass, chains, icicles and more on top of, under and beside your blocks, and along the ground.
+- **Background**: clouds, gears, stars, particles and pulsing rings behind the level.
+- **Colours**: background, ground, line and the style's own colour channels.
+- **Song pulses**: the outline, glow and background flash on the beat. Beats come from your guidelines, or Auto Deco listens to the song and finds them itself.
 
-Everything it places is one undo step, is left selected so you can move or recolour it straight away, and is marked No Touch so it cannot change gameplay.
-
-Settings let you pick the outline style, glow size, colour channels, Z layers and editor layer, or supply your own object IDs.
+Everything Auto Deco adds is tagged with one group, so running it again replaces the old decoration and **Remove** takes it all off. Decoration is No Touch and never changes gameplay.
 
 Free and open source (MIT).

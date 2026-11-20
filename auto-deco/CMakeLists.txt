@@ -8,7 +8,7 @@ else()
 endif()
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 
-project(AutoDeco VERSION 2.0.1)
+project(AutoDeco VERSION 2.0.2)
 
 add_library(${PROJECT_NAME} SHARED
     src/main.cpp

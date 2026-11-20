@@ -535,8 +535,9 @@ bool deleteObjects(EditorUI* ui, std::vector<GameObject*> const& objs) {
     return true;
 }
 
-// Returns an error message, or empty on success.
-std::string applyChoice(EditorUI* ui, deco::Counts* counts) {
+// Returns an error message, or empty on success. `created` receives how many
+// objects actually made it into the level.
+std::string applyChoice(EditorUI* ui, deco::Counts* counts, size_t* created) {
     auto lel = LevelEditorLayer::get();
     if (!ui || !lel) return "Open a level in the editor first.";
     auto const& c = choice();
@@ -579,14 +580,28 @@ std::string applyChoice(EditorUI* ui, deco::Counts* counts) {
     }
     if (objs.empty()) return "Nothing to add: every part is switched off.";
 
+    const std::string data = deco::toLevelString(objs, decoGroup(), settingInt("editor-layer"), settingBool("no-touch"));
+    log::info("Auto Deco: style '{}', {} solid cells from {} blocks, building {} objects ({} chars)", style.name,
+              p.solid.size(), rects.size(), objs.size(), data.size());
+
     Applied applied;
     // replace any earlier Auto Deco
     if (deleteObjects(ui, taggedObjects(lel))) ++applied.undoSteps;
-    applied.colors = setStartColors(lel, deco::channelColors(style, c.palette, p.channels));
 
-    const std::string data = deco::toLevelString(objs, decoGroup(), settingInt("editor-layer"), settingBool("no-touch"));
-    ui->pasteObjects(data, false, false); // one undo step
+    // Create the objects directly: the editor's own paste refuses large
+    // amounts, and a whole decorated level is large. One undo step.
+    auto made = lel->createObjectsFromString(data, true, true);
+    const size_t madeCount = made ? made->count() : 0;
+    if (created) *created = madeCount;
+    log::info("Auto Deco: {} of {} objects created", madeCount, objs.size());
+    if (madeCount == 0) {
+        g_lastApplied = std::move(applied); // so an earlier deco that was removed can still be undone
+        return "The game did not create any objects. Please send your Geode log (geode/logs) so this can be fixed.";
+    }
+    lel->addToUndoList(UndoObject::createWithArray(made, UndoCommand::Paste), false);
     ++applied.undoSteps;
+
+    applied.colors = setStartColors(lel, deco::channelColors(style, c.palette, p.channels));
     ui->deselectAll();
     ui->updateButtons();
     g_lastApplied = std::move(applied);
@@ -850,14 +865,20 @@ protected:
         }
         auto ui = EditorUI::get();
         deco::Counts counts;
-        const std::string error = applyChoice(ui, &counts);
+        size_t created = 0;
+        const std::string error = applyChoice(ui, &counts, &created);
         if (!error.empty()) {
             notify(error, NotificationIcon::Error);
             return;
         }
         saveChoice();
-        notify(fmt::format("Auto Deco: {} objects ({} details, {} triggers)", counts.total(), counts.details, counts.triggers),
-               NotificationIcon::Success);
+        if (created < counts.total()) {
+            notify(fmt::format("Auto Deco: only {} of {} objects were created", created, counts.total()), NotificationIcon::Warning);
+        } else {
+            notify(fmt::format("Auto Deco: added {} objects ({} details, {} background, {} triggers)", created, counts.details,
+                               counts.background, counts.triggers),
+                   NotificationIcon::Success);
+        }
         this->onClose(nullptr);
         if (preview) {
             showPreviewBar(ui);

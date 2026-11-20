@@ -7,7 +7,7 @@
     },
     "id": "opensource.auto-deco",
     "name": "Auto Deco",
-    "version": "v2.0.1",
+    "version": "v2.0.2",
     "developer": "Community",
     "description": "Pick a style and decorate your whole level: blocks, details, background, colours and pulses synced to the song.",
     "tags": ["editor", "utility", "offline"],

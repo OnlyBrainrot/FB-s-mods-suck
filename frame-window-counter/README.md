@@ -1,6 +1,6 @@
 # Frame Window Counter
 
-A Geode mod for Geometry Dash 2.2091 (Geode v6.0.0-alpha.2). Give it a macro and it:
+A Geode mod for Geometry Dash 2.2091 (Geode v6.0.0-alpha.3). Give it a macro and it:
 
 1. **counts the frame window of every input** - how many ticks (240 per second) the input could happen on and the run still survives,
 2. **plays the macro with an overlay** - a circle and the window size at each input, plus a running tally,

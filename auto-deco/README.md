@@ -1,6 +1,6 @@
 # Auto Deco
 
-A Geode mod for Geometry Dash 2.2091 (Geode 6.0.0-alpha.2). Pick a style, preview it on your level, keep it.
+A Geode mod for Geometry Dash 2.2091 (Geode 6.0.0-alpha.3). Pick a style, preview it on your level, keep it.
 
 ## Using it
 

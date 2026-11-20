@@ -1,5 +1,5 @@
 {
-    "geode": "6.0.0-alpha.2",
+    "geode": "6.0.0-alpha.3",
     "gd": {
         "win": "2.2091",
         "android": "2.2091",
@@ -7,7 +7,7 @@
     },
     "id": "opensource.auto-deco",
     "name": "Auto Deco",
-    "version": "v2.0.0",
+    "version": "v2.0.1",
     "developer": "Community",
     "description": "Pick a style and decorate your whole level: blocks, details, background, colours and pulses synced to the song.",
     "tags": ["editor", "utility", "offline"],

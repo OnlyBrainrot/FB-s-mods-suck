@@ -8,7 +8,7 @@ else()
 endif()
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 
-project(FrameWindowCounter VERSION 2.1.1)
+project(FrameWindowCounter VERSION 2.1.2)
 
 add_library(${PROJECT_NAME} SHARED
     src/main.cpp

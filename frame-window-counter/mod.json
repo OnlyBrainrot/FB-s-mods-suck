@@ -1,5 +1,5 @@
 {
-    "geode": "6.0.0-alpha.2",
+    "geode": "6.0.0-alpha.3",
     "gd": {
         "win": "2.2091",
         "android": "2.2091",
@@ -7,7 +7,7 @@
     },
     "id": "opensource.frame-window-counter",
     "name": "Frame Window Counter",
-    "version": "v2.1.1",
+    "version": "v2.1.2",
     "developer": "Community",
     "description": "Load a macro, count the frame window of every input, and show them as circles with a running tally. Can render the result to video.",
     "tags": ["gameplay", "utility", "offline"],

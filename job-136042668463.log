@@ -1,0 +1,894 @@
+﻿2026-11-20T02:37:43.0041282Z Current runner version: '2.338.2'
+2026-11-20T02:37:43.0070260Z ##[group]Runner Image Provisioner
+2026-11-20T02:37:43.0071240Z Hosted Compute Agent
+2026-11-20T02:37:43.0071833Z Version: 20261111.635
+2026-11-20T02:37:43.0072390Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-20T02:37:43.0073247Z Build Date: 2026-11-11T01:49:01Z
+2026-11-20T02:37:43.0073882Z Worker ID: {b5c6e385-b170-4838-a1f9-23555af66eb5}
+2026-11-20T02:37:43.0074560Z Region: eastus
+2026-11-20T02:37:43.0075115Z Cloud: Azure
+2026-11-20T02:37:43.0075635Z ##[endgroup]
+2026-11-20T02:37:43.0077464Z ##[group]Operating System
+2026-11-20T02:37:43.0078229Z Microsoft Windows Server 2025
+2026-11-20T02:37:43.0078891Z 10.0.26100
+2026-11-20T02:37:43.0079382Z Datacenter
+2026-11-20T02:37:43.0079892Z ##[endgroup]
+2026-11-20T02:37:43.0080398Z ##[group]Runner Image
+2026-11-20T02:37:43.0080976Z Image: windows-2025-vs2026
+2026-11-20T02:37:43.0081845Z Version: 20261116.315.1
+2026-11-20T02:37:43.0083402Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261116.315/images/windows/Windows2025-VS2026-Readme.md
+2026-11-20T02:37:43.0085058Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261116.315
+2026-11-20T02:37:43.0086027Z ##[endgroup]
+2026-11-20T02:37:43.0087176Z ##[group]GITHUB_TOKEN Permissions
+2026-11-20T02:37:43.0089377Z Actions: read
+2026-11-20T02:37:43.0089963Z Contents: write
+2026-11-20T02:37:43.0090491Z Metadata: read
+2026-11-20T02:37:43.0091004Z ##[endgroup]
+2026-11-20T02:37:43.0093112Z Secret source: Actions
+2026-11-20T02:37:43.0094099Z Cache mode: write
+2026-11-20T02:37:43.0094770Z Prepare workflow directory
+2026-11-20T02:37:43.0457299Z Prepare all required actions
+2026-11-20T02:37:43.0505634Z Getting action download info
+2026-11-20T02:37:43.2379304Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-20T02:37:43.3754381Z Download action repository 'geode-sdk/build-geode-mod@main' (SHA:61a56c697aea9655e3f31c6c1b83870431f30434)
+2026-11-20T02:37:43.4693463Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-20T02:37:43.8259648Z Getting action download info
+2026-11-20T02:37:43.9409191Z Download action repository 'robinraju/release-downloader@v1.13' (SHA:28fc21f50d76778e7023361aa1f863e717d3d56f)
+2026-11-20T02:37:44.0894242Z Download action repository 'hendrikmuhs/ccache-action@v1.2.23' (SHA:d62db5f07c26379fc4b4e0916f098a92573c3b03)
+2026-11-20T02:37:44.2287521Z Download action repository 'actions/cache@v6' (SHA:55cc8345863c7cc4c66a329aec7e433d2d1c52a9)
+2026-11-20T02:37:44.3799294Z Download action repository 'actions/checkout@v7' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-20T02:37:44.4754695Z Download action repository 'geode-sdk/cli@main' (SHA:846ddcc21766cae688fde1927b0a8bd4a1adf1ab)
+2026-11-20T02:37:44.6105635Z Download action repository 'actions/upload-artifact@v7' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+2026-11-20T02:37:44.7490055Z Getting action download info
+2026-11-20T02:37:44.9256436Z Complete job name: frame-window-counter
+2026-11-20T02:37:45.0918506Z ##[group]Run actions/checkout@v4
+2026-11-20T02:37:45.0920309Z with:
+2026-11-20T02:37:45.0921657Z   repository: OnlyBrainrot/FB-s-mods-suck
+2026-11-20T02:37:45.0929765Z   token: ***
+2026-11-20T02:37:45.0930531Z   ssh-strict: true
+2026-11-20T02:37:45.0931330Z   ssh-user: git
+2026-11-20T02:37:45.0932152Z   persist-credentials: true
+2026-11-20T02:37:45.0933020Z   clean: true
+2026-11-20T02:37:45.0933822Z   sparse-checkout-cone-mode: true
+2026-11-20T02:37:45.0934746Z   fetch-depth: 1
+2026-11-20T02:37:45.0935523Z   fetch-tags: false
+2026-11-20T02:37:45.0936323Z   show-progress: true
+2026-11-20T02:37:45.0937340Z   lfs: false
+2026-11-20T02:37:45.0938107Z   submodules: false
+2026-11-20T02:37:45.0938917Z   set-safe-directory: true
+2026-11-20T02:37:45.0939834Z   allow-unsafe-pr-checkout: false
+2026-11-20T02:37:45.0941261Z ##[endgroup]
+2026-11-20T02:37:45.2396520Z Syncing repository: OnlyBrainrot/FB-s-mods-suck
+2026-11-20T02:37:45.2401877Z ##[group]Getting Git version info
+2026-11-20T02:37:45.2403145Z Working directory is 'D:\a\FB-s-mods-suck\FB-s-mods-suck'
+2026-11-20T02:37:45.3338111Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-20T02:37:45.6008780Z git version 2.56.1.windows.1
+2026-11-20T02:37:45.6071505Z ##[endgroup]
+2026-11-20T02:37:45.6094004Z Temporarily overriding HOME='D:\a\_temp\ef79479c-22ce-410c-9514-8108f92fb424' before making global git config changes
+2026-11-20T02:37:45.6096284Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-20T02:37:45.6105318Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\FB-s-mods-suck\FB-s-mods-suck
+2026-11-20T02:37:45.6758612Z Deleting the contents of 'D:\a\FB-s-mods-suck\FB-s-mods-suck'
+2026-11-20T02:37:45.6765405Z ##[group]Initializing the repository
+2026-11-20T02:37:45.6773885Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\FB-s-mods-suck\FB-s-mods-suck
+2026-11-20T02:37:45.7687978Z Initialized empty Git repository in D:/a/FB-s-mods-suck/FB-s-mods-suck/.git/
+2026-11-20T02:37:45.7740504Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/OnlyBrainrot/FB-s-mods-suck
+2026-11-20T02:37:45.8373120Z ##[endgroup]
+2026-11-20T02:37:45.8374545Z ##[group]Disabling automatic garbage collection
+2026-11-20T02:37:45.8381543Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-20T02:37:45.8773290Z ##[endgroup]
+2026-11-20T02:37:45.8774610Z ##[group]Setting up auth
+2026-11-20T02:37:45.8785540Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-20T02:37:45.9163565Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-20T02:37:47.3383042Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-20T02:37:47.3759795Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-20T02:37:47.9905571Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-20T02:37:48.0296934Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-20T02:37:48.6238398Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-20T02:37:48.6638711Z ##[endgroup]
+2026-11-20T02:37:48.6639494Z ##[group]Fetching the repository
+2026-11-20T02:37:48.6654716Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +69bcc2e5b2311a6a15137babe487af34ec7000a3:refs/remotes/origin/main
+2026-11-20T02:37:49.5383397Z From https://github.com/OnlyBrainrot/FB-s-mods-suck
+2026-11-20T02:37:49.5384424Z  * [new ref]         69bcc2e5b2311a6a15137babe487af34ec7000a3 -> origin/main
+2026-11-20T02:37:49.5429945Z ##[endgroup]
+2026-11-20T02:37:49.5431105Z ##[group]Determining the checkout info
+2026-11-20T02:37:49.5433584Z ##[endgroup]
+2026-11-20T02:37:49.5448522Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-11-20T02:37:49.5950875Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-11-20T02:37:49.6337085Z ##[group]Checking out the ref
+2026-11-20T02:37:49.6346290Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2026-11-20T02:37:49.7108063Z Switched to a new branch 'main'
+2026-11-20T02:37:49.7131350Z branch 'main' set up to track 'origin/main'.
+2026-11-20T02:37:49.7176456Z ##[endgroup]
+2026-11-20T02:37:49.7641052Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-20T02:37:49.8097257Z 69bcc2e5b2311a6a15137babe487af34ec7000a3
+2026-11-20T02:37:49.8797259Z ##[group]Run geode-sdk/build-geode-mod@main
+2026-11-20T02:37:49.8797641Z with:
+2026-11-20T02:37:49.8797837Z   path: frame-window-counter
+2026-11-20T02:37:49.8798079Z   sdk: given
+2026-11-20T02:37:49.8798256Z   cli: latest
+2026-11-20T02:37:49.8798441Z   build-config: Release
+2026-11-20T02:37:49.8798644Z   combine: false
+2026-11-20T02:37:49.8798863Z   bindings: geode-sdk/bindings
+2026-11-20T02:37:49.8799118Z   android-min-sdk: 23
+2026-11-20T02:37:49.8799320Z   ccache-variant: default
+2026-11-20T02:37:49.8799528Z   use-cpm-cache: true
+2026-11-20T02:37:49.8799721Z   export-pdb: false
+2026-11-20T02:37:49.8799913Z   export-debug: false
+2026-11-20T02:37:49.8800103Z   use-lto: true
+2026-11-20T02:37:49.8800278Z   bundle-pdb: false
+2026-11-20T02:37:49.8800487Z   export-symbols: false
+2026-11-20T02:37:49.8800681Z ##[endgroup]
+2026-11-20T02:37:49.8864418Z ##[start-action display=Detect platform;id=build.platform]
+2026-11-20T02:37:49.9044165Z ##[group]Run DEFAULT_TARGET=Win64
+2026-11-20T02:37:49.9044519Z [36;1mDEFAULT_TARGET=Win64[0m
+2026-11-20T02:37:49.9044773Z [36;1mDEFAULT_CCACHE=sccache[0m
+2026-11-20T02:37:49.9045030Z [36;1mif [ "$RUNNER_OS" = "Linux" ]; then[0m
+2026-11-20T02:37:49.9045294Z [36;1m  ID=linux[0m
+2026-11-20T02:37:49.9045494Z [36;1m  DEFAULT_TARGET=Android64[0m
+2026-11-20T02:37:49.9045763Z [36;1melif [ "$RUNNER_OS" = "Windows" ]; then[0m
+2026-11-20T02:37:49.9046026Z [36;1m  ID=win[0m
+2026-11-20T02:37:49.9046218Z [36;1m  DEFAULT_TARGET=Win64[0m
+2026-11-20T02:37:49.9046468Z [36;1melif [ "$RUNNER_OS" = "macOS" ]; then[0m
+2026-11-20T02:37:49.9046721Z [36;1m  ID=mac[0m
+2026-11-20T02:37:49.9046903Z [36;1m  DEFAULT_TARGET=MacOS[0m
+2026-11-20T02:37:49.9047132Z [36;1m  DEFAULT_CCACHE=[0m
+2026-11-20T02:37:49.9047345Z [36;1mfi[0m
+2026-11-20T02:37:49.9047503Z [36;1m[0m
+2026-11-20T02:37:49.9047732Z [36;1mCCACHE_VARIANT=default[0m
+2026-11-20T02:37:49.9048005Z [36;1mif [ "$CCACHE_VARIANT" = "default" ]; then[0m
+2026-11-20T02:37:49.9048292Z [36;1m  CCACHE_VARIANT=$DEFAULT_CCACHE[0m
+2026-11-20T02:37:49.9048531Z [36;1mfi[0m
+2026-11-20T02:37:49.9048689Z [36;1m[0m
+2026-11-20T02:37:49.9048844Z [36;1mTARGET=[0m
+2026-11-20T02:37:49.9049029Z [36;1mif [ "$TARGET" = "" ]; then[0m
+2026-11-20T02:37:49.9049264Z [36;1m  TARGET=$DEFAULT_TARGET[0m
+2026-11-20T02:37:49.9049475Z [36;1mfi[0m
+2026-11-20T02:37:49.9049627Z [36;1m[0m
+2026-11-20T02:37:49.9049806Z [36;1mif [ "$TARGET" = "Android32" ]; then[0m
+2026-11-20T02:37:49.9050066Z [36;1m  OUTPUT_ID=android32[0m
+2026-11-20T02:37:49.9050306Z [36;1melif [ "$TARGET" = "Android64" ]; then[0m
+2026-11-20T02:37:49.9050568Z [36;1m  OUTPUT_ID=android64[0m
+2026-11-20T02:37:49.9050791Z [36;1melif [ "$TARGET" = "Win64" ]; then[0m
+2026-11-20T02:37:49.9051048Z [36;1m  OUTPUT_ID=win[0m
+2026-11-20T02:37:49.9051267Z [36;1melif [ "$TARGET" = "MacOS" ]; then[0m
+2026-11-20T02:37:49.9051508Z [36;1m  OUTPUT_ID=mac[0m
+2026-11-20T02:37:49.9051719Z [36;1melif [ "$TARGET" = "iOS" ]; then[0m
+2026-11-20T02:37:49.9051954Z [36;1m  OUTPUT_ID=ios[0m
+2026-11-20T02:37:49.9052142Z [36;1mfi[0m
+2026-11-20T02:37:49.9052302Z [36;1m[0m
+2026-11-20T02:37:49.9052474Z [36;1mecho "id=$ID" >> $GITHUB_OUTPUT[0m
+2026-11-20T02:37:49.9052743Z [36;1mecho "target=$TARGET" >> $GITHUB_OUTPUT[0m
+2026-11-20T02:37:49.9053056Z [36;1mecho "target_id=$OUTPUT_ID" >> $GITHUB_OUTPUT[0m
+2026-11-20T02:37:49.9053423Z [36;1mecho "ccache_variant=$CCACHE_VARIANT" >> $GITHUB_OUTPUT[0m
+2026-11-20T02:37:49.9074237Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2026-11-20T02:37:49.9074654Z ##[endgroup]
+2026-11-20T02:37:50.0728234Z ##[end-action id=build.platform;outcome=success;conclusion=success;duration_ms=186]
+2026-11-20T02:37:50.0733655Z ##[start-action display=Download custom sccache;id=build.__robinraju_release-downloader]
+2026-11-20T02:37:50.0755176Z ##[end-action id=build.__robinraju_release-downloader;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T02:37:50.0759309Z ##[start-action display=Setup custom sccache;id=build.__run]
+2026-11-20T02:37:50.0764870Z ##[end-action id=build.__run;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T02:37:50.0766735Z ##[start-action display=Setup sccache;id=build.__hendrikmuhs_ccache-action]
+2026-11-20T02:37:50.0958481Z ##[group]Run hendrikmuhs/ccache-action@v1.2.23
+2026-11-20T02:37:50.0958789Z with:
+2026-11-20T02:37:50.0958957Z   variant: sccache
+2026-11-20T02:37:50.0959133Z   key: win-v1
+2026-11-20T02:37:50.0959299Z   restore: true
+2026-11-20T02:37:50.0959468Z   max-size: 500MB
+2026-11-20T02:37:50.0959639Z   verbose: 0
+2026-11-20T02:37:50.0959797Z   save: true
+2026-11-20T02:37:50.0959971Z   append-timestamp: true
+2026-11-20T02:37:50.0979561Z   create-symlink: false
+2026-11-20T02:37:50.0979885Z   job-summary: CCache Statistics
+2026-11-20T02:37:50.0980164Z   update-package-index: false
+2026-11-20T02:37:50.0980398Z   install: detect
+2026-11-20T02:37:50.0980586Z ##[endgroup]
+2026-11-20T02:37:50.2379865Z ##[group]Install sccache
+2026-11-20T02:37:50.4675336Z [command]"C:\Program Files\Git\bin\sh.exe" -xc "curl -L 'https://github.com/mozilla/sccache/releases/download/v0.14.0/sccache-v0.14.0-x86_64-pc-windows-msvc.tar.gz' -o 'C:\Users\RUNNER~1\AppData\Local\Temp\ccacheQzh80I\sccache-v0.14.0-x86_64-pc-windows-msvc.tar.gz'"
+2026-11-20T02:37:50.5191665Z + curl -L https://github.com/mozilla/sccache/releases/download/v0.14.0/sccache-v0.14.0-x86_64-pc-windows-msvc.tar.gz -o 'C:\Users\RUNNER~1\AppData\Local\Temp\ccacheQzh80I\sccache-v0.14.0-x86_64-pc-windows-msvc.tar.gz'
+2026-11-20T02:37:50.5774722Z   % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+2026-11-20T02:37:50.5775535Z                                  Dload  Upload  Total   Spent   Left   Speed
+2026-11-20T02:37:50.5775985Z 
+2026-11-20T02:37:50.6478136Z   0      0   0      0   0      0      0      0                              0
+2026-11-20T02:37:50.6479437Z   0      0   0      0   0      0      0      0                              0
+2026-11-20T02:37:50.6480389Z   0      0   0      0   0      0      0      0                              0
+2026-11-20T02:37:50.7769195Z 
+2026-11-20T02:37:50.8465913Z   0      0   0      0   0      0      0      0                              0
+2026-11-20T02:37:50.8467891Z 100  7.45M 100  7.45M   0      0 26.18M      0                              0
+2026-11-20T02:37:50.8468584Z 100  7.45M 100  7.45M   0      0 26.17M      0                              0
+2026-11-20T02:37:50.8469422Z 100  7.45M 100  7.45M   0      0 26.16M      0                              0
+2026-11-20T02:37:50.9573887Z [command]"C:\Program Files\Git\bin\sh.exe" -xc "tar xf \"$(cygpath -u C:/Users/RUNNER~1/AppData/Local/Temp/ccacheQzh80I/sccache-v0.14.0-x86_64-pc-windows-msvc.tar.gz)\" -O 'sccache-v0.14.0-x86_64-pc-windows-msvc/sccache.exe' > 'C:\Users\runneradmin\.cargo\bin\sccache.exe'"
+2026-11-20T02:37:51.0034748Z ++ cygpath -u C:/Users/RUNNER~1/AppData/Local/Temp/ccacheQzh80I/sccache-v0.14.0-x86_64-pc-windows-msvc.tar.gz
+2026-11-20T02:37:51.0259827Z + tar xf /tmp/ccacheQzh80I/sccache-v0.14.0-x86_64-pc-windows-msvc.tar.gz -O sccache-v0.14.0-x86_64-pc-windows-msvc/sccache.exe
+2026-11-20T02:37:51.3503875Z [command]"C:\Program Files\Git\bin\sh.exe" -xc "chmod +x 'C:\Users\runneradmin\.cargo\bin\sccache.exe'"
+2026-11-20T02:37:51.3854267Z + chmod +x 'C:\Users\runneradmin\.cargo\bin\sccache.exe'
+2026-11-20T02:37:51.5854326Z sccache installed at C:\Users\runneradmin\.cargo\bin\sccache.exe
+2026-11-20T02:37:51.5855437Z ##[endgroup]
+2026-11-20T02:37:51.5856262Z ##[group]Restore cache
+2026-11-20T02:37:51.8970210Z Cache hit for restore-key: sccache-win-v1-2026-11-20T02:20:10.613Z
+2026-11-20T02:37:52.9477584Z Received 176160768 of 259494374 (67.9%), 167.2 MBs/sec
+2026-11-20T02:37:53.3686716Z Received 259494374 of 259494374 (100.0%), 173.7 MBs/sec
+2026-11-20T02:37:53.3690245Z Cache Size: ~247 MB (259494374 B)
+2026-11-20T02:37:53.3790677Z [command]"C:\Program Files\Git\usr\bin\tar.exe" -xf D:/a/_temp/a8eba7cc-9fb7-4a4d-96a1-35ac3d34c64c/cache.tzst -P -C D:/a/FB-s-mods-suck/FB-s-mods-suck --force-local --use-compress-program "zstd -d"
+2026-11-20T02:37:54.0400155Z Cache restored successfully
+2026-11-20T02:37:54.0529350Z Restored from cache key "sccache-win-v1-2026-11-20T02:20:10.613Z".
+2026-11-20T02:37:54.0530194Z ##[endgroup]
+2026-11-20T02:37:54.0530854Z ##[group]Configure sccache, win32
+2026-11-20T02:37:54.1584348Z [command]"C:\Program Files\Git\bin\sh.exe" -xc "env SCCACHE_IDLE_TIMEOUT=0 SCCACHE_DIR='D:\a\FB-s-mods-suck\FB-s-mods-suck\.sccache' SCCACHE_CACHE_SIZE='500MB' sccache --start-server"
+2026-11-20T02:37:54.1983590Z + env SCCACHE_IDLE_TIMEOUT=0 'SCCACHE_DIR=D:\a\FB-s-mods-suck\FB-s-mods-suck\.sccache' SCCACHE_CACHE_SIZE=500MB sccache --start-server
+2026-11-20T02:37:54.2370026Z sccache: Starting the server...
+2026-11-20T02:37:54.2646006Z sccache: Listening on address 127.0.0.1:4226
+2026-11-20T02:37:54.3789714Z [command]"C:\Program Files\Git\bin\sh.exe" -xc "sccache -z"
+2026-11-20T02:37:54.4205902Z + sccache -z
+2026-11-20T02:37:54.4446359Z Statistics zeroed.
+2026-11-20T02:37:54.4520561Z ##[endgroup]
+2026-11-20T02:37:54.4749584Z ##[end-action id=build.__hendrikmuhs_ccache-action;outcome=success;conclusion=success;duration_ms=4398]
+2026-11-20T02:37:54.4752700Z ##[start-action display=Setup CPM Cache;id=build.__actions_cache]
+2026-11-20T02:37:54.7107873Z ##[group]Run actions/cache@v6
+2026-11-20T02:37:54.7108127Z with:
+2026-11-20T02:37:54.7108343Z   path: D:\a\FB-s-mods-suck\FB-s-mods-suck/cpm-cache
+2026-11-20T02:37:54.7109039Z   key: cpm-win-v1-ad9dd3f86688b806ff85bb1a401c28e4a9bb9589c77f9e79a86f58224d0bb3cc
+2026-11-20T02:37:54.7109489Z   restore-keys: cpm-win-v1-
+
+2026-11-20T02:37:54.7109889Z   enableCrossOsArchive: false
+2026-11-20T02:37:54.7110291Z   fail-on-cache-miss: false
+2026-11-20T02:37:54.7110648Z   lookup-only: false
+2026-11-20T02:37:54.7110838Z   save-always: false
+2026-11-20T02:37:54.7111021Z ##[endgroup]
+2026-11-20T02:37:55.0335106Z Cache hit for restore-key: cpm-win-v1-4f1ead635f834a8aff4846e997467de7dd08934678151ed09d35d5c13086b270
+2026-11-20T02:37:55.2295905Z Received 6641045 of 6641045 (100.0%), 48.0 MBs/sec
+2026-11-20T02:37:55.2297823Z Cache Size: ~6 MB (6641045 B)
+2026-11-20T02:37:55.2323246Z [command]"C:\Program Files\Git\usr\bin\tar.exe" -xf D:/a/_temp/c9621d3c-f0a7-4f0d-8cb4-65e182465cd3/cache.tzst -P -C D:/a/FB-s-mods-suck/FB-s-mods-suck --force-local --use-compress-program "zstd -d"
+2026-11-20T02:37:55.5640919Z Cache restored successfully
+2026-11-20T02:37:55.5761309Z Cache restored from key: cpm-win-v1-4f1ead635f834a8aff4846e997467de7dd08934678151ed09d35d5c13086b270
+2026-11-20T02:37:55.5886493Z ##[end-action id=build.__actions_cache;outcome=success;conclusion=success;duration_ms=1113]
+2026-11-20T02:37:55.5889232Z ##[start-action display=Install Ninja;id=build.__run_2]
+2026-11-20T02:37:55.6032335Z ##[group]Run curl -L https://github.com/ninja-build/ninja/releases/latest/download/ninja-win.zip -o ninja.zip
+2026-11-20T02:37:55.6033137Z [36;1mcurl -L https://github.com/ninja-build/ninja/releases/latest/download/ninja-win.zip -o ninja.zip[0m
+2026-11-20T02:37:55.6033702Z [36;1m7z x ninja.zip -o"$GITHUB_WORKSPACE/ninja"[0m
+2026-11-20T02:37:55.6034093Z [36;1mecho "$GITHUB_WORKSPACE/ninja" >> $GITHUB_PATH[0m
+2026-11-20T02:37:55.6050943Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2026-11-20T02:37:55.6051331Z ##[endgroup]
+2026-11-20T02:37:55.7125873Z   % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+2026-11-20T02:37:55.7126372Z                                  Dload  Upload  Total   Spent   Left   Speed
+2026-11-20T02:37:55.7126617Z 
+2026-11-20T02:37:55.7632857Z   0      0   0      0   0      0      0      0                              0
+2026-11-20T02:37:55.7635461Z   0      0   0      0   0      0      0      0                              0
+2026-11-20T02:37:55.7636197Z   0      0   0      0   0      0      0      0                              0
+2026-11-20T02:37:55.7636741Z 
+2026-11-20T02:37:55.7740570Z   0      0   0      0   0      0      0      0                              0
+2026-11-20T02:37:55.7741697Z   0      0   0      0   0      0      0      0                              0
+2026-11-20T02:37:55.7742334Z   0      0   0      0   0      0      0      0                              0
+2026-11-20T02:37:55.8173978Z 
+2026-11-20T02:37:55.8320332Z   0      0   0      0   0      0      0      0                              0
+2026-11-20T02:37:55.8321312Z 100 284.7k 100 284.7k   0      0  1.69M      0                              0
+2026-11-20T02:37:55.8322015Z 100 284.7k 100 284.7k   0      0  1.69M      0                              0
+2026-11-20T02:37:55.8322681Z 100 284.7k 100 284.7k   0      0  1.68M      0                              0
+2026-11-20T02:37:56.0509034Z 
+2026-11-20T02:37:56.0509724Z 7-Zip 26.06 (x64) : Copyright (c) 1999-2026 Igor Pavlov : 2026-11-06
+2026-11-20T02:37:56.0510268Z 
+2026-11-20T02:37:56.0510433Z Scanning the drive for archives:
+2026-11-20T02:37:56.0510953Z 1 file, 291570 bytes (285 KiB)
+2026-11-20T02:37:56.0511213Z 
+2026-11-20T02:37:56.0511388Z Extracting archive: ninja.zip
+2026-11-20T02:37:56.0778024Z --
+2026-11-20T02:37:56.0778374Z Path = ninja.zip
+2026-11-20T02:37:56.0778624Z Type = zip
+2026-11-20T02:37:56.0778847Z Physical Size = 291570
+2026-11-20T02:37:56.0779007Z 
+2026-11-20T02:37:56.0782570Z Everything is Ok
+2026-11-20T02:37:56.0782781Z 
+2026-11-20T02:37:56.0782897Z Size:       603648
+2026-11-20T02:37:56.0783210Z Compressed: 291570
+2026-11-20T02:37:56.0900233Z ##[end-action id=build.__run_2;outcome=success;conclusion=success;duration_ms=501]
+2026-11-20T02:37:56.0902514Z ##[start-action display=Install dump_syms;id=build.__run_3]
+2026-11-20T02:37:56.0912408Z ##[end-action id=build.__run_3;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T02:37:56.0914289Z ##[start-action display=Download bindings repo;id=build.__actions_checkout]
+2026-11-20T02:37:56.0921545Z ##[end-action id=build.__actions_checkout;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T02:37:56.0923370Z ##[start-action display=Setup bindings enviroment;id=build.__run_4]
+2026-11-20T02:37:56.0927700Z ##[end-action id=build.__run_4;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T02:37:56.0929310Z ##[start-action display=Setup CLI;id=build.__geode-sdk_cli]
+2026-11-20T02:37:56.1105316Z ##[group]Run geode-sdk/cli/.github/actions/setup@main
+2026-11-20T02:37:56.1105612Z with:
+2026-11-20T02:37:56.1105779Z   version: latest
+2026-11-20T02:37:56.1105961Z ##[endgroup]
+2026-11-20T02:37:56.1109860Z ##[start-action display=Detect platform;id=build.__geode-sdk_cli.platform]
+2026-11-20T02:37:56.1240572Z ##[group]Run if [ "$RUNNER_OS" = "Linux" ]; then
+2026-11-20T02:37:56.1240890Z [36;1mif [ "$RUNNER_OS" = "Linux" ]; then[0m
+2026-11-20T02:37:56.1241193Z [36;1m  echo "host=linux" >> $GITHUB_OUTPUT[0m
+2026-11-20T02:37:56.1241482Z [36;1melif [ "$RUNNER_OS" = "Windows" ]; then[0m
+2026-11-20T02:37:56.1241768Z [36;1m  echo "host=win" >> $GITHUB_OUTPUT[0m
+2026-11-20T02:37:56.1242058Z [36;1melif [ "$RUNNER_OS" = "macOS" ]; then[0m
+2026-11-20T02:37:56.1242332Z [36;1m  echo "host=mac" >> $GITHUB_OUTPUT[0m
+2026-11-20T02:37:56.1242579Z [36;1mfi[0m
+2026-11-20T02:37:56.1259399Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2026-11-20T02:37:56.1259796Z ##[endgroup]
+2026-11-20T02:37:56.1668652Z ##[end-action id=build.__geode-sdk_cli.platform;outcome=success;conclusion=success;duration_ms=55]
+2026-11-20T02:37:56.1682826Z ##[start-action display=Download;id=build.__geode-sdk_cli.__robinraju_release-downloader]
+2026-11-20T02:37:56.1846068Z ##[group]Run robinraju/release-downloader@v1.13
+2026-11-20T02:37:56.1846824Z with:
+2026-11-20T02:37:56.1847023Z   repository: geode-sdk/cli
+2026-11-20T02:37:56.1847435Z   latest: true
+2026-11-20T02:37:56.1847657Z   fileName: *-win.zip
+2026-11-20T02:37:56.1847854Z   tarBall: false
+2026-11-20T02:37:56.1848038Z   zipBall: false
+2026-11-20T02:37:56.1848238Z   out-file-path: my-epic-geode-cli
+2026-11-20T02:37:56.1848627Z   preRelease: false
+2026-11-20T02:37:56.1848820Z   extract: false
+2026-11-20T02:37:56.1851140Z   token: ***
+2026-11-20T02:37:56.1851350Z   github-api-url: https://api.github.com
+2026-11-20T02:37:56.1851619Z ##[endgroup]
+2026-11-20T02:37:56.3201893Z Fetching latest release for repo geode-sdk/cli
+2026-11-20T02:37:56.3398750Z (node:1264) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-20T02:37:56.3415885Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-20T02:37:56.5034562Z Found latest release version: v4.0.1
+2026-11-20T02:37:56.5075637Z Downloading file: geode-cli-v4.0.1-win.zip to: D:\a\FB-s-mods-suck\FB-s-mods-suck\my-epic-geode-cli
+2026-11-20T02:37:56.8090919Z Downloaded geode-cli-v4.0.1-win.zip (13211952 bytes)
+2026-11-20T02:37:56.8102591Z Done: D:\a\FB-s-mods-suck\FB-s-mods-suck\my-epic-geode-cli\geode-cli-v4.0.1-win.zip
+2026-11-20T02:37:56.8236987Z ##[end-action id=build.__geode-sdk_cli.__robinraju_release-downloader;outcome=success;conclusion=success;duration_ms=655]
+2026-11-20T02:37:56.8240908Z ##[start-action display=Setup;id=build.__geode-sdk_cli.__run]
+2026-11-20T02:37:56.8399961Z ##[group]Run 7z x "my-epic-geode-cli/*-win.zip" -omy-epic-geode-cli
+2026-11-20T02:37:56.8400422Z [36;1m7z x "my-epic-geode-cli/*-win.zip" -omy-epic-geode-cli[0m
+2026-11-20T02:37:56.8400770Z [36;1mchmod +x my-epic-geode-cli/geode[0m
+2026-11-20T02:37:56.8401119Z [36;1mecho "$GITHUB_WORKSPACE/my-epic-geode-cli" >> $GITHUB_PATH[0m
+2026-11-20T02:37:56.8417928Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2026-11-20T02:37:56.8418347Z ##[endgroup]
+2026-11-20T02:37:56.9399136Z 
+2026-11-20T02:37:56.9399867Z 7-Zip 26.06 (x64) : Copyright (c) 1999-2026 Igor Pavlov : 2026-11-06
+2026-11-20T02:37:56.9400273Z 
+2026-11-20T02:37:56.9400420Z Scanning the drive for archives:
+2026-11-20T02:37:56.9400732Z 1 file, 13211952 bytes (13 MiB)
+2026-11-20T02:37:56.9400921Z 
+2026-11-20T02:37:56.9401140Z Extracting archive: my-epic-geode-cli\geode-cli-v4.0.1-win.zip
+2026-11-20T02:37:57.1533201Z --
+2026-11-20T02:37:57.1533561Z Path = my-epic-geode-cli\geode-cli-v4.0.1-win.zip
+2026-11-20T02:37:57.1534166Z Type = zip
+2026-11-20T02:37:57.1534384Z Physical Size = 13211952
+2026-11-20T02:37:57.1534863Z 
+2026-11-20T02:37:57.1536848Z Everything is Ok
+2026-11-20T02:37:57.1537074Z 
+2026-11-20T02:37:57.1537581Z Size:       39090441
+2026-11-20T02:37:57.1537918Z Compressed: 13211952
+2026-11-20T02:37:57.1870876Z ##[end-action id=build.__geode-sdk_cli.__run;outcome=success;conclusion=success;duration_ms=362]
+2026-11-20T02:37:57.1883245Z ##[end-action id=build.__geode-sdk_cli;outcome=success;conclusion=success;duration_ms=1095]
+2026-11-20T02:37:57.1885600Z ##[start-action display=Setup Geode SDK;id=build.__run_5]
+2026-11-20T02:37:57.2023446Z ##[group]Run export CLI_PROFILE="D:\a\FB-s-mods-suck\FB-s-mods-suck/cli-profile"
+2026-11-20T02:37:57.2024014Z [36;1mexport CLI_PROFILE="D:\a\FB-s-mods-suck\FB-s-mods-suck/cli-profile"[0m
+2026-11-20T02:37:57.2024388Z [36;1m# for windows[0m
+2026-11-20T02:37:57.2024631Z [36;1mmkdir -p "$CLI_PROFILE/geode/mods"[0m
+2026-11-20T02:37:57.2024891Z [36;1m# for mac[0m
+2026-11-20T02:37:57.2025128Z [36;1mmkdir -p "$CLI_PROFILE/Contents/geode/mods"[0m
+2026-11-20T02:37:57.2025563Z [36;1mgeode profile add --name GithubActions "$CLI_PROFILE/GeometryDash.exe" win[0m
+2026-11-20T02:37:57.2025946Z [36;1m[0m
+2026-11-20T02:37:57.2026241Z [36;1mgeode sdk install "D:\a\FB-s-mods-suck\FB-s-mods-suck/geode-sdk-clone"[0m
+2026-11-20T02:37:57.2026598Z [36;1m[0m
+2026-11-20T02:37:57.2026803Z [36;1m# silly github actions wont refresh the env[0m
+2026-11-20T02:37:57.2027378Z [36;1mexport GEODE_SDK="D:\a\FB-s-mods-suck\FB-s-mods-suck/geode-sdk-clone"[0m
+2026-11-20T02:37:57.2027779Z [36;1mecho "GEODE_SDK=$GEODE_SDK" >> $GITHUB_ENV[0m
+2026-11-20T02:37:57.2028745Z [36;1m[0m
+2026-11-20T02:37:57.2028976Z [36;1mif [ "given" == "nightly" ]; then[0m
+2026-11-20T02:37:57.2029261Z [36;1m  geode sdk update nightly[0m
+2026-11-20T02:37:57.2029567Z [36;1m  geode sdk install-binaries --platform win[0m
+2026-11-20T02:37:57.2029872Z [36;1melif [ "given" == "latest" ]; then[0m
+2026-11-20T02:37:57.2030141Z [36;1m  geode sdk update stable[0m
+2026-11-20T02:37:57.2030429Z [36;1m  geode sdk install-binaries --platform win[0m
+2026-11-20T02:37:57.2030737Z [36;1melif [ "given" == "given" ]; then[0m
+2026-11-20T02:37:57.2031252Z [36;1m  export MOD_JSON_PATH=$(find . -name "mod.json" -not -path "./geode-sdk-clone/*" -print | sort -r | head -n 1)[0m
+2026-11-20T02:37:57.2031847Z [36;1m  export TARGET_GEODE_VERSION=$(jq -r '.geode' $MOD_JSON_PATH)[0m
+2026-11-20T02:37:57.2032325Z [36;1m  echo "Updating to version $TARGET_GEODE_VERSION from $MOD_JSON_PATH"[0m
+2026-11-20T02:37:57.2032724Z [36;1m  geode sdk update "$TARGET_GEODE_VERSION"[0m
+2026-11-20T02:37:57.2033155Z [36;1m  geode sdk install-binaries --platform win --version "$TARGET_GEODE_VERSION"[0m
+2026-11-20T02:37:57.2033545Z [36;1melse[0m
+2026-11-20T02:37:57.2033727Z [36;1m  geode sdk update given[0m
+2026-11-20T02:37:57.2034008Z [36;1m  geode sdk install-binaries --platform win[0m
+2026-11-20T02:37:57.2034274Z [36;1mfi[0m
+2026-11-20T02:37:57.2034433Z [36;1m[0m
+2026-11-20T02:37:57.2034712Z [36;1mexport CPM_CACHE="D:\a\FB-s-mods-suck\FB-s-mods-suck/cpm-cache"[0m
+2026-11-20T02:37:57.2035124Z [36;1mecho "CPM_SOURCE_CACHE=$CPM_CACHE" >> $GITHUB_ENV[0m
+2026-11-20T02:37:57.2052267Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2026-11-20T02:37:57.2052658Z ##[endgroup]
+2026-11-20T02:37:57.3383065Z | Done | A new profile named 'GithubActions' has been created
+2026-11-20T02:37:57.3675798Z | Info | Downloading SDK
+2026-11-20T02:37:57.6621986Z | Info | Enumerating objects: 63674, done.
+2026-11-20T02:37:57.6622622Z | Info | Counting objects:   0% (1/1297)
+2026-11-20T02:37:57.6623445Z | Info | Counting objects:   1% (13/1297)
+2026-11-20T02:37:57.6624061Z | Info | Counting objects:   2% (26/1297)
+2026-11-20T02:37:57.6625119Z | Info | Counting objects:   3% (39/1297)
+2026-11-20T02:37:57.6625738Z | Info | Counting objects:   4% (52/1297)
+2026-11-20T02:37:57.6626353Z | Info | Counting objects:   5% (65/1297)
+2026-11-20T02:37:57.6626915Z | Info | Counting objects:   6% (78/1297)
+2026-11-20T02:37:57.6627350Z | Info | Counting objects:   7% (91/1297)
+2026-11-20T02:37:57.6627770Z | Info | Counting objects:   8% (104/1297)
+2026-11-20T02:37:57.6628207Z | Info | Counting objects:   9% (117/1297)
+2026-11-20T02:37:57.6629556Z | Info | Counting objects:  10% (130/1297)
+2026-11-20T02:37:57.6630602Z | Info | Counting objects:  11% (143/1297)
+2026-11-20T02:37:57.6631091Z Counting objects:  12% (156/1297)
+2026-11-20T02:37:57.6631521Z | Info | Counting objects:  13% (169/1297)
+2026-11-20T02:37:57.6632000Z | Info | Counting objects:  14% (182/1297)
+2026-11-20T02:37:57.6632480Z Counting objects:  15% (195/1297)
+2026-11-20T02:37:57.6632926Z | Info | Counting objects:  16% (208/1297)
+2026-11-20T02:37:57.6633624Z | Info | Counting objects:  17% (221/1297)
+2026-11-20T02:37:57.6634075Z | Info | Counting objects:  18% (234/1297)
+2026-11-20T02:37:57.6634538Z | Info | Counting objects:  19% (247/1297)
+2026-11-20T02:37:57.6635938Z | Info | Counting objects:  20% (260/1297)
+2026-11-20T02:37:57.6636401Z | Info | Counting objects:  21% (273/1297)
+2026-11-20T02:37:57.6636844Z | Info | Counting objects:  22% (286/1297)
+2026-11-20T02:37:57.6637274Z Counting objects:  23% (299/1297)
+2026-11-20T02:37:57.6637686Z | Info | Counting objects:  24% (312/1297)
+2026-11-20T02:37:57.6638125Z | Info | Counting objects:  25% (325/1297)
+2026-11-20T02:37:57.6638891Z | Info | Counting objects:  26% (338/1297)
+2026-11-20T02:37:57.6639338Z | Info | Counting objects:  27% (351/1297)
+2026-11-20T02:37:57.6639775Z | Info | Counting objects:  28% (364/1297)
+2026-11-20T02:37:57.6640408Z | Info | Counting objects:  29% (377/1297)
+2026-11-20T02:37:57.6640882Z | Info | Counting objects:  30% (390/1297)
+2026-11-20T02:37:57.6641314Z | Info | Counting objects:  31% (403/1297)
+2026-11-20T02:37:57.6641772Z | Info | Counting objects:  32% (416/1297)
+2026-11-20T02:37:57.6642210Z | Info | Counting objects:  33% (429/1297)
+2026-11-20T02:37:57.6642649Z | Info | Counting objects:  34% (441/1297)
+2026-11-20T02:37:57.6643092Z | Info | Counting objects:  35% (454/1297)
+2026-11-20T02:37:57.6643526Z | Info | Counting objects:  36% (467/1297)
+2026-11-20T02:37:57.6643969Z | Info | Counting objects:  37% (480/1297)
+2026-11-20T02:37:57.6645012Z | Info | Counting objects:  38% (493/1297)
+2026-11-20T02:37:57.6645458Z | Info | Counting objects:  39% (506/1297)
+2026-11-20T02:37:57.6645926Z | Info | Counting objects:  40% (519/1297)
+2026-11-20T02:37:57.6646371Z Counting objects:  41% (532/1297)
+2026-11-20T02:37:57.6646784Z | Info | Counting objects:  42% (545/1297)
+2026-11-20T02:37:57.6647244Z | Info | Counting objects:  43% (558/1297)
+2026-11-20T02:37:57.6647688Z | Info | Counting objects:  44% (571/1297)
+2026-11-20T02:37:57.6648136Z | Info | Counting objects:  45% (584/1297)
+2026-11-20T02:37:57.6648562Z Counting objects:  46% (597/1297)
+2026-11-20T02:37:57.6648969Z | Info | Counting objects:  47% (610/1297)
+2026-11-20T02:37:57.6649885Z | Info | Counting objects:  48% (623/1297)
+2026-11-20T02:37:57.6650772Z | Info | Counting objects:  49% (636/1297)
+2026-11-20T02:37:57.6651058Z | Info | Counting objects:  50% (649/1297)
+2026-11-20T02:37:57.6651328Z | Info | Counting objects:  51% (662/1297)
+2026-11-20T02:37:57.6651600Z | Info | Counting objects:  52% (675/1297)
+2026-11-20T02:37:57.6651861Z Counting objects:  53% (688/1297)
+2026-11-20T02:37:57.6652121Z | Info | Counting objects:  54% (701/1297)
+2026-11-20T02:37:57.6652376Z | Info | Counting objects:  55% (714/1297)
+2026-11-20T02:37:57.6652627Z | Info | Counting objects:  56% (727/1297)
+2026-11-20T02:37:57.6652884Z Counting objects:  57% (740/1297)
+2026-11-20T02:37:57.6653117Z | Info | Counting objects:  58% (753/1297)
+2026-11-20T02:37:57.6653691Z | Info | Counting objects:  59% (766/1297)
+2026-11-20T02:37:57.6653992Z | Info | Counting objects:  60% (779/1297)
+2026-11-20T02:37:57.6654238Z Counting objects:  61% (792/1297)
+2026-11-20T02:37:57.6654747Z | Info | Counting objects:  62% (805/1297)
+2026-11-20T02:37:57.6655451Z | Info | Counting objects:  63% (818/1297)
+2026-11-20T02:37:57.6656336Z Counting objects:  64% (831/1297)
+2026-11-20T02:37:57.6656604Z | Info | Counting objects:  65% (844/1297)
+2026-11-20T02:37:57.6656865Z | Info | Counting objects:  66% (857/1297)
+2026-11-20T02:37:57.6657122Z | Info | Counting objects:  67% (869/1297)
+2026-11-20T02:37:57.6657376Z | Info | Counting objects:  68% (882/1297)
+2026-11-20T02:37:57.6657638Z | Info | Counting objects:  69% (895/1297)
+2026-11-20T02:37:57.6657885Z Counting objects:  70% (908/1297)
+2026-11-20T02:37:57.6658115Z | Info | Counting objects:  71% (921/1297)
+2026-11-20T02:37:57.6658372Z | Info | Counting objects:  72% (934/1297)
+2026-11-20T02:37:57.6658615Z Counting objects:  73% (947/1297)
+2026-11-20T02:37:57.6658835Z Counting objects:  74% (960/1297)
+2026-11-20T02:37:57.6659064Z | Info | Counting objects:  75% (973/1297)
+2026-11-20T02:37:57.6659312Z | Info | Counting objects:  76% (986/1297)
+2026-11-20T02:37:57.6659579Z | Info | Counting objects:  77% (999/1297)
+2026-11-20T02:37:57.6659836Z | Info | Counting objects:  78% (1012/1297)
+2026-11-20T02:37:57.6660104Z | Info | Counting objects:  79% (1025/1297)
+2026-11-20T02:37:57.6660360Z | Info | Counting objects:  80% (1038/1297)
+2026-11-20T02:37:57.6660610Z Counting objects:  81% (1051/1297)
+2026-11-20T02:37:57.6660874Z | Info | Counting objects:  82% (1064/1297)
+2026-11-20T02:37:57.6662064Z | Info | Counting objects:  83% (1077/1297)
+2026-11-20T02:37:57.6662351Z | Info | Counting objects:  84% (1090/1297)
+2026-11-20T02:37:57.6662606Z | Info | Counting objects:  85% (1103/1297)
+2026-11-20T02:37:57.6662963Z Counting objects:  86% (1116/1297)
+2026-11-20T02:37:57.6663214Z | Info | Counting objects:  87% (1129/1297)
+2026-11-20T02:37:57.6663465Z | Info | Counting objects:  88% (1142/1297)
+2026-11-20T02:37:57.6663717Z | Info | Counting objects:  89% (1155/1297)
+2026-11-20T02:37:57.6663964Z | Info | Counting objects:  90% (1168/1297)
+2026-11-20T02:37:57.6664204Z Counting objects:  91% (1181/1297)
+2026-11-20T02:37:57.6664436Z | Info | Counting objects:  92% (1194/1297)
+2026-11-20T02:37:57.6664685Z | Info | Counting objects:  93% (1207/1297)
+2026-11-20T02:37:57.6664933Z | Info | Counting objects:  94% (1220/1297)
+2026-11-20T02:37:57.6665184Z | Info | Counting objects:  95% (1233/1297)
+2026-11-20T02:37:57.6665428Z Counting objects:  96% (1246/1297)
+2026-11-20T02:37:57.6665669Z | Info | Counting objects:  97% (1259/1297)
+2026-11-20T02:37:57.6665917Z | Info | Counting objects:  98% (1272/1297)
+2026-11-20T02:37:57.6666358Z | Info | Counting objects:  99% (1285/1297)
+2026-11-20T02:37:57.6667024Z Counting objects: 100% (1297/1297)
+2026-11-20T02:37:57.6667408Z | Info | Counting objects: 100% (1297/1297), done.
+2026-11-20T02:37:57.6667709Z | Info | Compressing objects:   0% (1/467)
+2026-11-20T02:37:57.6667984Z | Info | Compressing objects:   1% (5/467)
+2026-11-20T02:37:57.6668242Z | Info | Compressing objects:   2% (10/467)
+2026-11-20T02:37:57.6668510Z | Info | Compressing objects:   3% (15/467)
+2026-11-20T02:37:57.6668770Z | Info | Compressing objects:   4% (19/467)
+2026-11-20T02:37:57.6669024Z | Info | Compressing objects:   5% (24/467)
+2026-11-20T02:37:57.6669282Z | Info | Compressing objects:   6% (29/467)
+2026-11-20T02:37:57.6669534Z | Info | Compressing objects:   7% (33/467)
+2026-11-20T02:37:57.6669792Z | Info | Compressing objects:   8% (38/467)
+2026-11-20T02:37:57.6670055Z | Info | Compressing objects:   9% (43/467)
+2026-11-20T02:37:57.6670737Z | Info | Compressing objects:  10% (47/467)
+2026-11-20T02:37:57.6671004Z | Info | Compressing objects:  11% (52/467)
+2026-11-20T02:37:57.6671262Z | Info | Compressing objects:  12% (57/467)
+2026-11-20T02:37:57.6671701Z | Info | Compressing objects:  13% (61/467)
+2026-11-20T02:37:57.6671994Z | Info | Compressing objects:  14% (66/467)
+2026-11-20T02:37:57.6672254Z | Info | Compressing objects:  15% (71/467)
+2026-11-20T02:37:57.6672520Z | Info | Compressing objects:  16% (75/467)
+2026-11-20T02:37:57.6672790Z | Info | Compressing objects:  17% (80/467)
+2026-11-20T02:37:57.6673053Z | Info | Compressing objects:  18% (85/467)
+2026-11-20T02:37:57.6673313Z | Info | Compressing objects:  19% (89/467)
+2026-11-20T02:37:57.6673882Z | Info | Compressing objects:  20% (94/467)
+2026-11-20T02:37:57.6674186Z | Info | Compressing objects:  21% (99/467)
+2026-11-20T02:37:57.6674462Z | Info | Compressing objects:  22% (103/467)
+2026-11-20T02:37:57.6674734Z | Info | Compressing objects:  23% (108/467)
+2026-11-20T02:37:57.6675003Z | Info | Compressing objects:  24% (113/467)
+2026-11-20T02:37:57.6675261Z | Info | Compressing objects:  25% (117/467)
+2026-11-20T02:37:57.6675954Z | Info | Compressing objects:  26% (122/467)
+2026-11-20T02:37:57.6676232Z | Info | Compressing objects:  27% (127/467)
+2026-11-20T02:37:57.6676960Z | Info | Compressing objects:  28% (131/467)
+2026-11-20T02:37:57.6677611Z | Info | Compressing objects:  29% (136/467)
+2026-11-20T02:37:57.6678068Z | Info | Compressing objects:  30% (141/467)
+2026-11-20T02:37:57.6678339Z | Info | Compressing objects:  31% (145/467)
+2026-11-20T02:37:57.6678605Z | Info | Compressing objects:  32% (150/467)
+2026-11-20T02:37:57.6678861Z | Info | Compressing objects:  33% (155/467)
+2026-11-20T02:37:57.6679113Z | Info | Compressing objects:  34% (159/467)
+2026-11-20T02:37:57.6679376Z | Info | Compressing objects:  35% (164/467)
+2026-11-20T02:37:57.6679631Z | Info | Compressing objects:  36% (169/467)
+2026-11-20T02:37:57.6680082Z | Info | Compressing objects:  37% (173/467)
+2026-11-20T02:37:57.6680657Z | Info | Compressing objects:  38% (178/467)
+2026-11-20T02:37:57.6681032Z | Info | Compressing objects:  39% (183/467)
+2026-11-20T02:37:57.6681434Z | Info | Compressing objects:  40% (187/467)
+2026-11-20T02:37:57.6681707Z | Info | Compressing objects:  41% (192/467)
+2026-11-20T02:37:57.6681968Z | Info | Compressing objects:  42% (197/467)
+2026-11-20T02:37:57.6682230Z | Info | Compressing objects:  43% (201/467)
+2026-11-20T02:37:57.6682490Z | Info | Compressing objects:  44% (206/467)
+2026-11-20T02:37:57.6682751Z | Info | Compressing objects:  45% (211/467)
+2026-11-20T02:37:57.6683008Z | Info | Compressing objects:  46% (215/467)
+2026-11-20T02:37:57.6683266Z | Info | Compressing objects:  47% (220/467)
+2026-11-20T02:37:57.6683530Z | Info | Compressing objects:  48% (225/467)
+2026-11-20T02:37:57.6683789Z | Info | Compressing objects:  49% (229/467)
+2026-11-20T02:37:57.6684057Z | Info | Compressing objects:  50% (234/467)
+2026-11-20T02:37:57.6684319Z | Info | Compressing objects:  51% (239/467)
+2026-11-20T02:37:57.6684578Z | Info | Compressing objects:  52% (243/467)
+2026-11-20T02:37:57.6684849Z | Info | Compressing objects:  53% (248/467)
+2026-11-20T02:37:57.6685110Z | Info | Compressing objects:  54% (253/467)
+2026-11-20T02:37:57.6685370Z | Info | Compressing objects:  55% (257/467)
+2026-11-20T02:37:57.6685640Z | Info | Compressing objects:  56% (262/467)
+2026-11-20T02:37:57.6685899Z | Info | Compressing objects:  57% (267/467)
+2026-11-20T02:37:57.6686170Z | Info | Compressing objects:  58% (271/467)
+2026-11-20T02:37:57.6686432Z | Info | Compressing objects:  59% (276/467)
+2026-11-20T02:37:57.6687021Z | Info | Compressing objects:  60% (281/467)
+2026-11-20T02:37:57.6687292Z | Info | Compressing objects:  61% (285/467)
+2026-11-20T02:37:57.6687551Z | Info | Compressing objects:  62% (290/467)
+2026-11-20T02:37:57.6687809Z | Info | Compressing objects:  63% (295/467)
+2026-11-20T02:37:57.6688074Z | Info | Compressing objects:  64% (299/467)
+2026-11-20T02:37:57.6688327Z | Info | Compressing objects:  65% (304/467)
+2026-11-20T02:37:57.6688587Z | Info | Compressing objects:  66% (309/467)
+2026-11-20T02:37:57.6688845Z | Info | Compressing objects:  67% (313/467)
+2026-11-20T02:37:57.6689100Z | Info | Compressing objects:  68% (318/467)
+2026-11-20T02:37:57.6689361Z | Info | Compressing objects:  69% (323/467)
+2026-11-20T02:37:57.6689620Z | Info | Compressing objects:  70% (327/467)
+2026-11-20T02:37:57.6689886Z | Info | Compressing objects:  71% (332/467)
+2026-11-20T02:37:57.6690140Z | Info | Compressing objects:  72% (337/467)
+2026-11-20T02:37:57.6690401Z | Info | Compressing objects:  73% (341/467)
+2026-11-20T02:37:57.6690661Z | Info | Compressing objects:  74% (346/467)
+2026-11-20T02:37:57.6690924Z | Info | Compressing objects:  75% (351/467)
+2026-11-20T02:37:57.6691178Z | Info | Compressing objects:  76% (355/467)
+2026-11-20T02:37:57.6691442Z | Info | Compressing objects:  77% (360/467)
+2026-11-20T02:37:57.6691706Z | Info | Compressing objects:  78% (365/467)
+2026-11-20T02:37:57.6691967Z | Info | Compressing objects:  79% (369/467)
+2026-11-20T02:37:57.6692225Z | Info | Compressing objects:  80% (374/467)
+2026-11-20T02:37:57.6692486Z | Info | Compressing objects:  81% (379/467)
+2026-11-20T02:37:57.6692752Z | Info | Compressing objects:  82% (383/467)
+2026-11-20T02:37:57.6693258Z | Info | Compressing objects:  83% (388/467)
+2026-11-20T02:37:57.6693519Z | Info | Compressing objects:  84% (393/467)
+2026-11-20T02:37:57.6694220Z | Info | Compressing objects:  85% (397/467)
+2026-11-20T02:37:57.6694624Z | Info | Compressing objects:  86% (402/467)
+2026-11-20T02:37:57.6694890Z | Info | Compressing objects:  87% (407/467)
+2026-11-20T02:37:57.6695518Z | Info | Compressing objects:  88% (411/467)
+2026-11-20T02:37:57.6696507Z | Info | Compressing objects:  89% (416/467)
+2026-11-20T02:37:57.6696819Z | Info | Compressing objects:  90% (421/467)
+2026-11-20T02:37:57.6697657Z | Info | Compressing objects:  91% (425/467)
+2026-11-20T02:37:57.6698054Z | Info | Compressing objects:  92% (430/467)
+2026-11-20T02:37:57.6698318Z | Info | Compressing objects:  93% (435/467)
+2026-11-20T02:37:57.6699163Z | Info | Compressing objects:  94% (439/467)
+2026-11-20T02:37:57.6699490Z | Info | Compressing objects:  95% (444/467)
+2026-11-20T02:37:57.6699772Z | Info | Compressing objects:  96% (449/467)
+2026-11-20T02:37:57.6700043Z | Info | Compressing objects:  97% (453/467)
+2026-11-20T02:37:57.6700300Z | Info | Compressing objects:  98% (458/467)
+2026-11-20T02:37:57.6700563Z | Info | Compressing objects:  99% (463/467)
+2026-11-20T02:37:57.6700819Z | Info | Compressing objects: 100% (467/467)
+2026-11-20T02:37:57.6701108Z | Info | Compressing objects: 100% (467/467), done.
+2026-11-20T02:38:06.6221389Z | Info | Total 63674 (delta 1100), reused 848 (delta 829), pack-reused 62377 (from 3)
+2026-11-20T02:38:10.9875137Z | Info | Set GEODE_SDK environment variable automatically
+2026-11-20T02:38:11.0495817Z | Info | Updating head
+2026-11-20T02:38:11.1272110Z | Done | Updated head to v6.0.0-alpha.3
+2026-11-20T02:38:11.1272714Z | Done | Successfully installed SDK
+2026-11-20T02:38:11.1273532Z | Info | Please restart your command line to have the GEODE_SDK enviroment variable set.
+2026-11-20T02:38:11.1274608Z | Info | Use `geode sdk install-binaries` to install pre-built binaries
+2026-11-20T02:38:11.4803698Z Updating to version 6.0.0-alpha.3 from ./frame-window-counter/mod.json
+2026-11-20T02:38:11.5063086Z | Info | Switching to 6.0.0-alpha.3
+2026-11-20T02:38:11.5063575Z | Info | Updating SDK
+2026-11-20T02:38:11.5795221Z | Info | Updating head
+2026-11-20T02:38:11.6242132Z | Info | Switched to 6.0.0-alpha.3
+2026-11-20T02:38:11.6242626Z | Done | SDK is up to date
+2026-11-20T02:38:11.6596861Z | Info | Installing binaries for 6.0.0-alpha.3
+2026-11-20T02:38:11.8403390Z | Info | Found binaries for platform Windows
+2026-11-20T02:38:11.8406686Z | Info | Downloading
+2026-11-20T02:38:13.0047374Z | Done | Binaries installed
+2026-11-20T02:38:13.0189915Z ##[end-action id=build.__run_5;outcome=success;conclusion=success;duration_ms=15830]
+2026-11-20T02:38:13.0193360Z ##[start-action display=Run CMake and build;id=build.build]
+2026-11-20T02:38:13.0335645Z ##[group]Run mkdir -p $HOME/.cache
+2026-11-20T02:38:13.0335989Z [36;1mmkdir -p $HOME/.cache[0m
+2026-11-20T02:38:13.0336217Z [36;1m[0m
+2026-11-20T02:38:13.0336438Z [36;1mNDK_PATH="/usr/local/lib/android/sdk/ndk/"[0m
+2026-11-20T02:38:13.0336740Z [36;1mif [ "" = "" ]; then[0m
+2026-11-20T02:38:13.0336988Z [36;1m  # NDK_PATH="$ANDROID_NDK_LATEST_HOME"[0m
+2026-11-20T02:38:13.0337335Z [36;1m  NDK_PATH=/usr/local/lib/android/sdk/ndk/29.0.14206865[0m
+2026-11-20T02:38:13.0337644Z [36;1mfi[0m
+2026-11-20T02:38:13.0337812Z [36;1m[0m
+2026-11-20T02:38:13.0338003Z [36;1mcd "frame-window-counter"[0m
+2026-11-20T02:38:13.0338258Z [36;1mCMAKE_EXTRA_ARGS=""[0m
+2026-11-20T02:38:13.0338483Z [36;1mif [ win = "mac" ]; then[0m
+2026-11-20T02:38:13.0339140Z [36;1m  CMAKE_EXTRA_ARGS="-DCMAKE_OSX_DEPLOYMENT_TARGET=11.0 -DGEODE_DISABLE_PRECOMPILED_HEADERS=OFF -DCMAKE_AR='/usr/bin/ar' -DCMAKE_RANLIB='/usr/bin/ranlib'"[0m
+2026-11-20T02:38:13.0339805Z [36;1melif [ win = "android32" ]; then[0m
+2026-11-20T02:38:13.0340540Z [36;1m  CMAKE_EXTRA_ARGS="-DCMAKE_TOOLCHAIN_FILE=$NDK_PATH/build/cmake/android.toolchain.cmake -DANDROID_STL=c++_shared -DANDROID_ABI=armeabi-v7a -DANDROID_PLATFORM=android-23"[0m
+2026-11-20T02:38:13.0341279Z [36;1melif [ win = "android64" ]; then[0m
+2026-11-20T02:38:13.0341984Z [36;1m  CMAKE_EXTRA_ARGS="-DCMAKE_TOOLCHAIN_FILE=$NDK_PATH/build/cmake/android.toolchain.cmake -DANDROID_STL=c++_shared -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-23"[0m
+2026-11-20T02:38:13.0342695Z [36;1melif [ win = "ios" ]; then[0m
+2026-11-20T02:38:13.0343205Z [36;1m  CMAKE_EXTRA_ARGS="-DCMAKE_SYSTEM_NAME=iOS -DGEODE_TARGET_PLATFORM=iOS -DGEODE_DISABLE_PRECOMPILED_HEADERS=OFF"[0m
+2026-11-20T02:38:13.0343714Z [36;1mfi[0m
+2026-11-20T02:38:13.0344042Z [36;1mif [ "true" = "true" ]; then[0m
+2026-11-20T02:38:13.0344433Z [36;1m  CMAKE_EXTRA_ARGS="$CMAKE_EXTRA_ARGS -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON"[0m
+2026-11-20T02:38:13.0344825Z [36;1mfi[0m
+2026-11-20T02:38:13.0345165Z [36;1mif [ "false" = "true" ] && [ win = "win" ]; then[0m
+2026-11-20T02:38:13.0345538Z [36;1m  CMAKE_EXTRA_ARGS="$CMAKE_EXTRA_ARGS -DGEODE_BUNDLE_PDB=ON"[0m
+2026-11-20T02:38:13.0345860Z [36;1mfi[0m
+2026-11-20T02:38:13.0346044Z [36;1mif [ -n "sccache" ]; then[0m
+2026-11-20T02:38:13.0346299Z [36;1m  CCACHE_PATH="$(which "sccache")"[0m
+2026-11-20T02:38:13.0346867Z [36;1m  CMAKE_EXTRA_ARGS="$CMAKE_EXTRA_ARGS -DCMAKE_C_COMPILER_LAUNCHER=${CCACHE_PATH} -DCMAKE_CXX_COMPILER_LAUNCHER=${CCACHE_PATH}"[0m
+2026-11-20T02:38:13.0347407Z [36;1mfi[0m
+2026-11-20T02:38:13.0348644Z [36;1mcmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DGEODE_CODEGEN_CMAKE_ARGS="-DCMAKE_C_COMPILER=clang;-DCMAKE_CXX_COMPILER=clang++;-G Ninja" -G Ninja $CMAKE_EXTRA_ARGS -DGEODE_DONT_INSTALL_MODS=ON -DGEODE_TARGET_PLATFORM=Win64 [0m
+2026-11-20T02:38:13.0349935Z [36;1mcmake --build build --config Release  --parallel[0m
+2026-11-20T02:38:13.0350282Z [36;1m[0m
+2026-11-20T02:38:13.0350535Z [36;1mmkdir "D:\a\FB-s-mods-suck\FB-s-mods-suck/output"[0m
+2026-11-20T02:38:13.0350845Z [36;1m[0m
+2026-11-20T02:38:13.0351067Z [36;1mfor file in $(find ./build -name *.geode); do[0m
+2026-11-20T02:38:13.0351424Z [36;1m  cp $file "D:\a\FB-s-mods-suck\FB-s-mods-suck/output"[0m
+2026-11-20T02:38:13.0351783Z [36;1m  if [ win = "linux" ] && [ "false" = "true" ]; then[0m
+2026-11-20T02:38:13.0352143Z [36;1m    if [ win = "android32" ] || [ win = "android64" ]; then[0m
+2026-11-20T02:38:13.0352506Z [36;1m      SO_FILE_NAME="$(basename $file .geode).win.so"[0m
+2026-11-20T02:38:13.0352841Z [36;1m      if [ -f "./build/$SO_FILE_NAME" ]; then[0m
+2026-11-20T02:38:13.0353347Z [36;1m        dump_syms ./build/$SO_FILE_NAME -o "D:\a\FB-s-mods-suck\FB-s-mods-suck/output/$SO_FILE_NAME.sym"[0m
+2026-11-20T02:38:13.0353806Z [36;1m      fi[0m
+2026-11-20T02:38:13.0353999Z [36;1m    fi[0m
+2026-11-20T02:38:13.0354172Z [36;1m  fi[0m
+2026-11-20T02:38:13.0354346Z [36;1mdone[0m
+2026-11-20T02:38:13.0354514Z [36;1m[0m
+2026-11-20T02:38:13.0354688Z [36;1mif [ win = "win" ]; then[0m
+2026-11-20T02:38:13.0354932Z [36;1m  if [ "false" = "true" ]; then[0m
+2026-11-20T02:38:13.0355225Z [36;1m    for file in $(find ./build -name *.pdb); do[0m
+2026-11-20T02:38:13.0355584Z [36;1m      cp $file "D:\a\FB-s-mods-suck\FB-s-mods-suck/output"[0m
+2026-11-20T02:38:13.0355889Z [36;1m    done[0m
+2026-11-20T02:38:13.0356064Z [36;1m  fi[0m
+2026-11-20T02:38:13.0356233Z [36;1mfi[0m
+2026-11-20T02:38:13.0356390Z [36;1m[0m
+2026-11-20T02:38:13.0356559Z [36;1mif [ "false" = "true" ]; then[0m
+2026-11-20T02:38:13.0356849Z [36;1m  for file in $(find ./build -name *.pdb); do[0m
+2026-11-20T02:38:13.0357189Z [36;1m    cp $file "D:\a\FB-s-mods-suck\FB-s-mods-suck/output"[0m
+2026-11-20T02:38:13.0357498Z [36;1m  done[0m
+2026-11-20T02:38:13.0357716Z [36;1m  for file in $(find ./build -name *.dbg); do[0m
+2026-11-20T02:38:13.0358055Z [36;1m    cp $file "D:\a\FB-s-mods-suck\FB-s-mods-suck/output"[0m
+2026-11-20T02:38:13.0358357Z [36;1m  done[0m
+2026-11-20T02:38:13.0358570Z [36;1m  for dir in $(find ./build -name *.dSYM); do[0m
+2026-11-20T02:38:13.0358915Z [36;1m    cp -R $dir "D:\a\FB-s-mods-suck\FB-s-mods-suck/output"[0m
+2026-11-20T02:38:13.0359215Z [36;1m  done[0m
+2026-11-20T02:38:13.0359380Z [36;1mfi[0m
+2026-11-20T02:38:13.0359542Z [36;1m[0m
+2026-11-20T02:38:13.0359787Z [36;1mOUTPUT_DIR="D:\a\FB-s-mods-suck\FB-s-mods-suck/output"[0m
+2026-11-20T02:38:13.0360115Z [36;1mif [ win = "mac" ]; then[0m
+2026-11-20T02:38:13.0360536Z [36;1m  OUTPUT_DIR=$(python3 -c 'import os, sys; print(os.path.realpath(sys.argv[1]))' "$OUTPUT_DIR")[0m
+2026-11-20T02:38:13.0360989Z [36;1melif [ win = "win" ]; then[0m
+2026-11-20T02:38:13.0361383Z [36;1m  OUTPUT_DIR=$(cygpath -wa "$OUTPUT_DIR")[0m
+2026-11-20T02:38:13.0361650Z [36;1melse[0m
+2026-11-20T02:38:13.0361857Z [36;1m  OUTPUT_DIR=$(realpath "$OUTPUT_DIR")[0m
+2026-11-20T02:38:13.0362114Z [36;1mfi[0m
+2026-11-20T02:38:13.0362403Z [36;1mecho "output=$OUTPUT_DIR" >> $GITHUB_OUTPUT[0m
+2026-11-20T02:38:13.0379170Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2026-11-20T02:38:13.0379553Z env:
+2026-11-20T02:38:13.0379813Z   GEODE_SDK: D:\a\FB-s-mods-suck\FB-s-mods-suck/geode-sdk-clone
+2026-11-20T02:38:13.0380229Z   CPM_SOURCE_CACHE: D:\a\FB-s-mods-suck\FB-s-mods-suck/cpm-cache
+2026-11-20T02:38:13.0380544Z ##[endgroup]
+2026-11-20T02:38:19.5248479Z -- The C compiler identification is Clang 20.1.8 with GNU-like command-line
+2026-11-20T02:38:23.3825278Z -- The CXX compiler identification is Clang 20.1.8 with GNU-like command-line
+2026-11-20T02:38:23.4943332Z -- Detecting C compiler ABI info
+2026-11-20T02:38:25.7468097Z -- Detecting C compiler ABI info - done
+2026-11-20T02:38:25.7971546Z -- Check for working C compiler: C:/Program Files/LLVM/bin/clang.exe - skipped
+2026-11-20T02:38:25.8028106Z -- Detecting C compile features
+2026-11-20T02:38:25.8067469Z -- Detecting C compile features - done
+2026-11-20T02:38:25.8641736Z -- Detecting CXX compiler ABI info
+2026-11-20T02:38:26.3674255Z -- Detecting CXX compiler ABI info - done
+2026-11-20T02:38:26.4075332Z -- Check for working CXX compiler: C:/Program Files/LLVM/bin/clang++.exe - skipped
+2026-11-20T02:38:26.4081191Z -- Detecting CXX compile features
+2026-11-20T02:38:26.9811651Z -- Detecting CXX compile features - done
+2026-11-20T02:38:26.9889707Z -- Found Geode: D:\a\FB-s-mods-suck\FB-s-mods-suck/geode-sdk-clone
+2026-11-20T02:38:26.9911241Z -- Version: 6.0.0, tag: alpha.3 (type: Alpha, number: 3)
+2026-11-20T02:38:27.0327928Z -- No override path for bindings provided, using CPM to clone default. If you would like to use a separate clone of the bindings repo (for example in order to be able to efficiently change and contribute new bindings) then set GEODE_BINDINGS_REPO_PATH to where you have cloned the repository (system environment variables are supported).
+2026-11-20T02:38:27.0330216Z -- CPM: Adding package bindings@ (main)
+2026-11-20T02:38:27.0345142Z -- Populating bindings
+2026-11-20T02:38:27.1979423Z -- Configuring done (0.1s)
+2026-11-20T02:38:27.2174449Z -- Generating done (0.0s)
+2026-11-20T02:38:27.2183818Z -- Build files have been written to: D:/a/FB-s-mods-suck/FB-s-mods-suck/frame-window-counter/build/_deps/bindings-subbuild
+2026-11-20T02:38:27.3013368Z [1/9] Creating directories for 'bindings-populate'
+2026-11-20T02:38:27.3015563Z [1/9] Performing download step (git clone) for 'bindings-populate'
+2026-11-20T02:38:27.3664293Z Cloning into 'bindings-src'...
+2026-11-20T02:38:36.0134585Z Already on 'main'
+2026-11-20T02:38:36.0160259Z Your branch is up to date with 'origin/main'.
+2026-11-20T02:38:36.6143931Z [2/9] Performing update step for 'bindings-populate'
+2026-11-20T02:38:36.6926665Z -- Fetching latest from the remote origin
+2026-11-20T02:38:37.6559933Z [3/9] No patch step for 'bindings-populate'
+2026-11-20T02:38:37.7530537Z [5/9] No configure step for 'bindings-populate'
+2026-11-20T02:38:37.8012513Z [6/9] No build step for 'bindings-populate'
+2026-11-20T02:38:37.8483169Z [7/9] No install step for 'bindings-populate'
+2026-11-20T02:38:37.8965004Z [8/9] No test step for 'bindings-populate'
+2026-11-20T02:38:37.9647624Z [9/9] Completed 'bindings-populate'
+2026-11-20T02:38:37.9708247Z -- Looking for ccache/sccache
+2026-11-20T02:38:37.9708736Z -- Looking for ccache/sccache - detecting variant
+2026-11-20T02:38:37.9709147Z -- Looking for ccache/sccache - detected sccache
+2026-11-20T02:38:37.9710139Z Using sccache with Clang, PCH will be enabled.
+2026-11-20T02:38:37.9710502Z -- Pre-compiled headers - ON
+2026-11-20T02:38:37.9869923Z -- Found Geode CLI: D:/a/FB-s-mods-suck/FB-s-mods-suck/my-epic-geode-cli/geode.exe (version 4.0.1)
+2026-11-20T02:38:37.9910627Z -- Found Git: C:/Program Files/Git/ucrt64/bin/git.exe (found version "2.56.1.windows.1")
+2026-11-20T02:38:38.0531489Z -- CPM: Adding package result@1668 (1668d22 at D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/result/9983)
+2026-11-20T02:38:38.1236303Z -- CPM: Adding package json@4.1.0 (v4.1.0 at D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/json/f358)
+2026-11-20T02:38:38.2986628Z -- CPM: Adding package nontype_functional@6 (6d1d08c at D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/nontype_functional/aaa0)
+2026-11-20T02:38:38.4196029Z -- {fmt} version: 12.2.0
+2026-11-20T02:38:38.4196398Z -- Build type: Release
+2026-11-20T02:38:38.4267018Z -- Performing Test HAS_NULLPTR_WARNING
+2026-11-20T02:38:42.6652287Z -- Performing Test HAS_NULLPTR_WARNING - Success
+2026-11-20T02:38:42.6675170Z -- CPM: Adding package fmt@12.2.0 (12.2.0 at D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/fmt/73a7)
+2026-11-20T02:38:42.7514698Z -- CPM: Adding package asp2@1.6.4 (v1.6.4 at D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/asp2/9972)
+2026-11-20T02:38:42.8276174Z -- Arc features: time
+2026-11-20T02:38:42.8287927Z -- CPM: Adding package arc@1.6.6 (v1.6.6 at D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/arc/e5fc)
+2026-11-20T02:38:42.9097724Z -- CPM: Adding package TulipHook@ (fb5e02c at D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/tuliphook/0737)
+2026-11-20T02:38:42.9111929Z -- Performing Test SUPPORTS_W_NO_EVERYTHING
+2026-11-20T02:38:43.4780749Z -- Performing Test SUPPORTS_W_NO_EVERYTHING - Success
+2026-11-20T02:38:43.4800400Z -- Downloading Codegen
+2026-11-20T02:38:43.4800991Z Set SKIP_BUILDING_CODEGEN to OFF to force codegen to build locally.
+2026-11-20T02:38:43.6870142Z -- Downloading Codegen - success
+2026-11-20T02:38:43.6870542Z -- Skipping building Codegen
+2026-11-20T02:38:43.6870873Z -- Running Codegen
+2026-11-20T02:38:45.2891707Z 'D:/a/FB-s-mods-suck/FB-s-mods-suck/frame-window-counter/build/bindings/codegen/Codegen.exe' 'Win64' 'D:/a/FB-s-mods-suck/FB-s-mods-suck/frame-window-counter/build/_deps/bindings-src/bindings/2.2091' 'D:/a/FB-s-mods-suck/FB-s-mods-suck/frame-window-counter/build/bindings/bindings'
+2026-11-20T02:38:45.2894077Z -- Setting up FrameWindowCounter
+2026-11-20T02:38:45.2900149Z -- Mod opensource.frame-window-counter is compiling for Geode version 6.0.0-alpha.3
+2026-11-20T02:38:45.2901205Z -- Mod opensource.frame-window-counter is compiling for Geometry Dash version 2.2091
+2026-11-20T02:38:45.3089885Z -- Skipping installing FrameWindowCounter
+2026-11-20T02:38:45.3100417Z -- Configuring done (31.7s)
+2026-11-20T02:38:45.6855891Z -- Generating done (0.4s)
+2026-11-20T02:38:45.6869154Z -- Build files have been written to: D:/a/FB-s-mods-suck/FB-s-mods-suck/frame-window-counter/build
+2026-11-20T02:38:45.7564256Z [0/2] Re-checking globbed directories...
+2026-11-20T02:38:45.9445146Z [1/39] Scanning "C:/Program Files/Microsoft Visual Studio/18/Enterprise/VC/Tools/MSVC/14.52.37025/modules/std.compat.ixx" for CXX dependencies
+2026-11-20T02:38:46.0852446Z [2/39] Scanning "C:/Program Files/Microsoft Visual Studio/18/Enterprise/VC/Tools/MSVC/14.52.37025/modules/std.ixx" for CXX dependencies
+2026-11-20T02:38:46.1113650Z [3/39] Generating CXX dyndep file _deps/fmt-build/CMakeFiles/@cmake_cxx_std@synth_0.dir/CXX.dd
+2026-11-20T02:38:46.3661170Z [4/39] Scanning D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/fmt/73a7/src/format.cc for CXX dependencies
+2026-11-20T02:38:47.8411156Z [5/39] Scanning D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/fmt/73a7/src/os.cc for CXX dependencies
+2026-11-20T02:38:47.8648413Z [6/39] Generating CXX dyndep file _deps/fmt-build/CMakeFiles/fmt.dir/CXX.dd
+2026-11-20T02:38:52.4558925Z [7/39] Building CXX object _deps/fmt-build/CMakeFiles/fmt.dir/src/os.cc.obj
+2026-11-20T02:38:52.4570022Z FAILED: [code=1] _deps/fmt-build/CMakeFiles/fmt.dir/src/os.cc.obj 
+2026-11-20T02:38:52.4575105Z C:\Users\runneradmin\.cargo\bin\sccache "C:\Program Files\LLVM\bin\clang++.exe" -D_HAS_ITERATOR_DEBUGGING=0 -ID:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/fmt/73a7/include -O3 -DNDEBUG -std=gnu++23 -D_DLL -D_MT -Xclang --dependent-lib=msvcrt -g -Xclang -gcodeview -flto=thin --target=x86_64-pc-windows-msvc -MD -MT _deps/fmt-build/CMakeFiles/fmt.dir/src/os.cc.obj -MF _deps\fmt-build\CMakeFiles\fmt.dir\src\os.cc.obj.d @_deps\fmt-build\CMakeFiles\fmt.dir\src\os.cc.obj.modmap -o _deps/fmt-build/CMakeFiles/fmt.dir/src/os.cc.obj -c D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/fmt/73a7/src/os.cc
+2026-11-20T02:38:52.4581312Z In file included from D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/fmt/73a7/src/os.cc:13:
+2026-11-20T02:38:52.4583147Z In file included from D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/fmt/73a7/include\fmt/os.h:11:
+2026-11-20T02:38:52.4584783Z In file included from D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/fmt/73a7/include\fmt\format.h:41:
+2026-11-20T02:38:52.4586317Z In file included from D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/fmt/73a7/include\fmt\base.h:20:
+2026-11-20T02:38:52.4588018Z In file included from C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\type_traits:8:
+2026-11-20T02:38:52.4589611Z In file included from C:\Program Files\LLVM\lib\clang\20\include\yvals_core.h:17:
+2026-11-20T02:38:52.4591737Z C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\yvals_core.h:923:1: error: static assertion failed: error STL1000: Unexpected compiler version, expected Clang 22 or newer.
+2026-11-20T02:38:52.4593941Z   923 | _EMIT_STL_ERROR(STL1000, "Unexpected compiler version, expected Clang 22 or newer.");
+2026-11-20T02:38:52.4595192Z       | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-20T02:38:52.4597313Z C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\yvals_core.h:537:58: note: expanded from macro '_EMIT_STL_ERROR'
+2026-11-20T02:38:52.4599197Z   537 | #define _EMIT_STL_ERROR(NUMBER, MESSAGE)   static_assert(false, "error " #NUMBER ": " MESSAGE)
+2026-11-20T02:38:52.4600429Z       |                                                          ^~~~~
+2026-11-20T02:38:52.4601308Z 1 error generated.
+2026-11-20T02:38:52.6817386Z [8/39] Building CXX object _deps/fmt-build/CMakeFiles/fmt.dir/src/format.cc.obj
+2026-11-20T02:38:52.6818391Z FAILED: [code=1] _deps/fmt-build/CMakeFiles/fmt.dir/src/format.cc.obj 
+2026-11-20T02:38:52.6822712Z C:\Users\runneradmin\.cargo\bin\sccache "C:\Program Files\LLVM\bin\clang++.exe" -D_HAS_ITERATOR_DEBUGGING=0 -ID:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/fmt/73a7/include -O3 -DNDEBUG -std=gnu++23 -D_DLL -D_MT -Xclang --dependent-lib=msvcrt -g -Xclang -gcodeview -flto=thin --target=x86_64-pc-windows-msvc -MD -MT _deps/fmt-build/CMakeFiles/fmt.dir/src/format.cc.obj -MF _deps\fmt-build\CMakeFiles\fmt.dir\src\format.cc.obj.d @_deps\fmt-build\CMakeFiles\fmt.dir\src\format.cc.obj.modmap -o _deps/fmt-build/CMakeFiles/fmt.dir/src/format.cc.obj -c D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/fmt/73a7/src/format.cc
+2026-11-20T02:38:52.6827127Z In file included from D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/fmt/73a7/src/format.cc:8:
+2026-11-20T02:38:52.6828328Z In file included from D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/fmt/73a7/include\fmt/format-inl.h:19:
+2026-11-20T02:38:52.6830136Z In file included from C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\algorithm:8:
+2026-11-20T02:38:52.6831360Z In file included from C:\Program Files\LLVM\lib\clang\20\include\yvals_core.h:17:
+2026-11-20T02:38:52.6833141Z C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\yvals_core.h:923:1: error: static assertion failed: error STL1000: Unexpected compiler version, expected Clang 22 or newer.
+2026-11-20T02:38:52.6835029Z   923 | _EMIT_STL_ERROR(STL1000, "Unexpected compiler version, expected Clang 22 or newer.");
+2026-11-20T02:38:52.6835975Z       | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-20T02:38:52.6837280Z C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\yvals_core.h:537:58: note: expanded from macro '_EMIT_STL_ERROR'
+2026-11-20T02:38:52.6839199Z   537 | #define _EMIT_STL_ERROR(NUMBER, MESSAGE)   static_assert(false, "error " #NUMBER ": " MESSAGE)
+2026-11-20T02:38:52.6840358Z       |                                                          ^~~~~
+2026-11-20T02:38:52.6840908Z 1 error generated.
+2026-11-20T02:38:54.7808494Z [9/39] Building CXX object _deps/arc-build/CMakeFiles/arc.dir/Unity/unity_0_cxx.cxx.obj
+2026-11-20T02:38:54.7809556Z FAILED: [code=1] _deps/arc-build/CMakeFiles/arc.dir/Unity/unity_0_cxx.cxx.obj 
+2026-11-20T02:38:54.7816557Z C:\Users\runneradmin\.cargo\bin\sccache "C:\Program Files\LLVM\bin\clang++.exe" -DARC_FEATURE_TIME=1 -DNOMINMAX -D_HAS_ITERATOR_DEBUGGING=0 -ID:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/arc/e5fc/include -isystem D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/asp2/9972/include -isystem D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/result/9983/include -isystem D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/fmt/73a7/include -isystem D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/nontype_functional/aaa0/include -O3 -DNDEBUG -std=gnu++23 -D_DLL -D_MT -Xclang --dependent-lib=msvcrt -g -Xclang -gcodeview -flto=thin --target=x86_64-pc-windows-msvc -Wno-invalid-offsetof -MD -MT _deps/arc-build/CMakeFiles/arc.dir/Unity/unity_0_cxx.cxx.obj -MF _deps\arc-build\CMakeFiles\arc.dir\Unity\unity_0_cxx.cxx.obj.d -o _deps/arc-build/CMakeFiles/arc.dir/Unity/unity_0_cxx.cxx.obj -c D:/a/FB-s-mods-suck/FB-s-mods-suck/frame-window-counter/build/_deps/arc-build/CMakeFiles/arc.dir/Unity/unity_0_cxx.cxx
+2026-11-20T02:38:54.7823996Z In file included from D:/a/FB-s-mods-suck/FB-s-mods-suck/frame-window-counter/build/_deps/arc-build/CMakeFiles/arc.dir/Unity/unity_0_cxx.cxx:4:
+2026-11-20T02:38:54.7825666Z In file included from D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/arc/e5fc/src/Util.cpp:1:
+2026-11-20T02:38:54.7827036Z In file included from D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/arc/e5fc/include\arc/util/Random.hpp:3:
+2026-11-20T02:38:54.7828591Z In file included from C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\array:8:
+2026-11-20T02:38:54.7829986Z In file included from C:\Program Files\LLVM\lib\clang\20\include\yvals_core.h:17:
+2026-11-20T02:38:54.7832267Z C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\yvals_core.h:923:1: error: static assertion failed: error STL1000: Unexpected compiler version, expected Clang 22 or newer.
+2026-11-20T02:38:54.7834274Z   923 | _EMIT_STL_ERROR(STL1000, "Unexpected compiler version, expected Clang 22 or newer.");
+2026-11-20T02:38:54.7835361Z       | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-20T02:38:54.7836844Z C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\yvals_core.h:537:58: note: expanded from macro '_EMIT_STL_ERROR'
+2026-11-20T02:38:54.7838549Z   537 | #define _EMIT_STL_ERROR(NUMBER, MESSAGE)   static_assert(false, "error " #NUMBER ": " MESSAGE)
+2026-11-20T02:38:54.7839630Z       |                                                          ^~~~~
+2026-11-20T02:38:54.7840329Z 1 error generated.
+2026-11-20T02:38:55.9234529Z [10/39] Building CXX object _deps/asp2-build/CMakeFiles/asp.dir/Unity/unity_0_cxx.cxx.obj
+2026-11-20T02:38:55.9235619Z FAILED: [code=1] _deps/asp2-build/CMakeFiles/asp.dir/Unity/unity_0_cxx.cxx.obj 
+2026-11-20T02:38:55.9241695Z C:\Users\runneradmin\.cargo\bin\sccache "C:\Program Files\LLVM\bin\clang++.exe" -DNOMINMAX=1 -D_HAS_ITERATOR_DEBUGGING=0 -ID:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/asp2/9972/include -isystem D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/result/9983/include -isystem D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/fmt/73a7/include -isystem D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/nontype_functional/aaa0/include -O3 -DNDEBUG -std=gnu++23 -D_DLL -D_MT -Xclang --dependent-lib=msvcrt -g -Xclang -gcodeview -flto=thin --target=x86_64-pc-windows-msvc -MD -MT _deps/asp2-build/CMakeFiles/asp.dir/Unity/unity_0_cxx.cxx.obj -MF _deps\asp2-build\CMakeFiles\asp.dir\Unity\unity_0_cxx.cxx.obj.d -o _deps/asp2-build/CMakeFiles/asp.dir/Unity/unity_0_cxx.cxx.obj -c D:/a/FB-s-mods-suck/FB-s-mods-suck/frame-window-counter/build/_deps/asp2-build/CMakeFiles/asp.dir/Unity/unity_0_cxx.cxx
+2026-11-20T02:38:55.9249253Z In file included from D:/a/FB-s-mods-suck/FB-s-mods-suck/frame-window-counter/build/_deps/asp2-build/CMakeFiles/asp.dir/Unity/unity_0_cxx.cxx:4:
+2026-11-20T02:38:55.9250684Z In file included from D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/asp2/9972/src/Log.cpp:1:
+2026-11-20T02:38:55.9251784Z In file included from D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/asp2/9972/include\asp/Log.hpp:4:
+2026-11-20T02:38:55.9253021Z In file included from D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/asp2/9972/include\asp\detail/Function.hpp:2:
+2026-11-20T02:38:55.9254637Z In file included from D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/nontype_functional/aaa0/include\std23/move_only_function.h:4:
+2026-11-20T02:38:55.9256403Z In file included from D:/a/FB-s-mods-suck/FB-s-mods-suck/cpm-cache/nontype_functional/aaa0/include\std23\__functional_base.h:4:
+2026-11-20T02:38:55.9257812Z In file included from C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\functional:8:
+2026-11-20T02:38:55.9258898Z In file included from C:\Program Files\LLVM\lib\clang\20\include\yvals_core.h:17:
+2026-11-20T02:38:55.9260431Z C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\yvals_core.h:923:1: error: static assertion failed: error STL1000: Unexpected compiler version, expected Clang 22 or newer.
+2026-11-20T02:38:55.9261995Z   923 | _EMIT_STL_ERROR(STL1000, "Unexpected compiler version, expected Clang 22 or newer.");
+2026-11-20T02:38:55.9262782Z       | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-11-20T02:38:55.9264024Z C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\yvals_core.h:537:58: note: expanded from macro '_EMIT_STL_ERROR'
+2026-11-20T02:38:55.9265528Z   537 | #define _EMIT_STL_ERROR(NUMBER, MESSAGE)   static_assert(false, "error " #NUMBER ": " MESSAGE)
+2026-11-20T02:38:55.9266339Z       |                                                          ^~~~~
+2026-11-20T02:38:55.9266826Z 1 error generated.
+2026-11-20T02:38:55.9267207Z ninja: build stopped: subcommand failed.
+2026-11-20T02:38:55.9361997Z ##[error]Process completed with exit code 1.
+2026-11-20T02:38:55.9370449Z ##[end-action id=build.build;outcome=failure;conclusion=failure;duration_ms=42917]
+2026-11-20T02:38:55.9373833Z ##[start-action display=Upload artifacts;id=build.__actions_upload-artifact]
+2026-11-20T02:38:55.9377244Z ##[end-action id=build.__actions_upload-artifact;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T02:38:55.9818020Z Post job cleanup.
+2026-11-20T02:38:55.9822469Z ##[start-action display=Setup CPM Cache;id=__7ce88231-25f0-4e07-a413-acf00e8c0ef9.__actions_cache]
+2026-11-20T02:38:55.9824674Z ##[end-action id=__7ce88231-25f0-4e07-a413-acf00e8c0ef9.__actions_cache;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T02:38:55.9826560Z ##[start-action display=Setup sccache;id=__7ce88231-25f0-4e07-a413-acf00e8c0ef9.__hendrikmuhs_ccache-action]
+2026-11-20T02:38:56.0012449Z Post job cleanup.
+2026-11-20T02:38:56.3172806Z ##[group]sccache stats
+2026-11-20T02:38:56.4260120Z [command]C:\Users\runneradmin\.cargo\bin\sccache.exe -s
+2026-11-20T02:38:56.4469704Z Compile requests                      4
+2026-11-20T02:38:56.4470423Z Compile requests executed             4
+2026-11-20T02:38:56.4471058Z Cache hits                            0
+2026-11-20T02:38:56.4471635Z Cache misses                          0
+2026-11-20T02:38:56.4472253Z Cache hits rate                       -
+2026-11-20T02:38:56.4472942Z Cache timeouts                        0
+2026-11-20T02:38:56.4473512Z Cache read errors                     0
+2026-11-20T02:38:56.4474075Z Forced recaches                       0
+2026-11-20T02:38:56.4474932Z Cache write errors                    0
+2026-11-20T02:38:56.4475482Z Cache errors                          0
+2026-11-20T02:38:56.4476775Z Compilations                          0
+2026-11-20T02:38:56.4477823Z Compilation failures                  4
+2026-11-20T02:38:56.4478635Z Non-cacheable compilations            0
+2026-11-20T02:38:56.4482933Z Non-cacheable calls                   0
+2026-11-20T02:38:56.4483603Z Non-compilation calls                 0
+2026-11-20T02:38:56.4484212Z Unsupported compiler calls            0
+2026-11-20T02:38:56.4484806Z Average cache write               0.000 s
+2026-11-20T02:38:56.4485403Z Average compiler                  0.000 s
+2026-11-20T02:38:56.4485985Z Average cache read hit            0.000 s
+2026-11-20T02:38:56.4486599Z Failed distributed compilations       0
+2026-11-20T02:38:56.4487413Z Cache location                  Local disk: "D:\\a\\FB-s-mods-suck\\FB-s-mods-suck\\.sccache"
+2026-11-20T02:38:56.4488272Z Base directories                (none)
+2026-11-20T02:38:56.4488890Z Use direct/preprocessor mode?   yes
+2026-11-20T02:38:56.4489474Z Version (client)                0.14.0
+2026-11-20T02:38:56.4490046Z Cache size                          260 MiB
+2026-11-20T02:38:56.4490629Z Max cache size                       10 GiB
+2026-11-20T02:38:56.4499712Z ##[endgroup]
+2026-11-20T02:38:56.6129531Z Save cache using key "sccache-win-v1-2026-11-20T02:38:56.611Z".
+2026-11-20T02:38:56.7108788Z [command]"C:\Program Files\Git\usr\bin\tar.exe" --posix -cf cache.tzst --exclude cache.tzst -P -C D:/a/FB-s-mods-suck/FB-s-mods-suck --files-from manifest.txt --force-local --use-compress-program "zstd -T0"
+2026-11-20T02:38:58.6279685Z Sent 259506939 of 259506939 (100.0%), 242.9 MBs/sec
+2026-11-20T02:38:58.7790284Z ##[end-action id=__7ce88231-25f0-4e07-a413-acf00e8c0ef9.__hendrikmuhs_ccache-action;outcome=success;conclusion=success;duration_ms=2796]
+2026-11-20T02:38:58.7982299Z Post job cleanup.
+2026-11-20T02:38:59.0078919Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-20T02:38:59.0435820Z git version 2.56.1.windows.1
+2026-11-20T02:38:59.0511371Z Temporarily overriding HOME='D:\a\_temp\a81829f8-bc23-48f0-b4eb-0c00fc0c4d0e' before making global git config changes
+2026-11-20T02:38:59.0512673Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-20T02:38:59.0523087Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\FB-s-mods-suck\FB-s-mods-suck
+2026-11-20T02:38:59.0909071Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-20T02:38:59.1289299Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-20T02:38:59.7206259Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-20T02:38:59.7582525Z http.https://github.com/.extraheader
+2026-11-20T02:38:59.7629122Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-11-20T02:38:59.8017541Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-20T02:39:00.3535616Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-20T02:39:00.3910069Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-20T02:39:00.9442662Z Cleaning up orphan processes
+2026-11-20T02:39:00.9683156Z Terminate orphan process: pid (1452) (sccache)
+2026-11-20T02:39:00.9819971Z Terminate orphan process: pid (1756) (conhost)
+2026-11-20T02:39:00.9925734Z Terminate orphan process: pid (1888) (vctip)
+2026-11-20T02:39:01.0005349Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

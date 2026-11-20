@@ -1,0 +1,231 @@
+{
+  "total_count": 4,
+  "jobs": [
+    {
+      "id": 136042668105,
+      "run_id": 44662146161,
+      "workflow_name": "Build mods (Windows)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/OnlyBrainrot/FB-s-mods-suck/actions/runs/44662146161",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVyfeXc8AAAAfrMZgSQ",
+      "head_sha": "69bcc2e5b2311a6a15137babe487af34ec7000a3",
+      "url": "https://api.github.com/repos/OnlyBrainrot/FB-s-mods-suck/actions/jobs/136042668105",
+      "html_url": "https://github.com/OnlyBrainrot/FB-s-mods-suck/actions/runs/44662146161/job/136042668105",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-11-20T02:37:40Z",
+      "started_at": "2026-11-20T02:37:42Z",
+      "completed_at": "2026-11-20T02:39:39Z",
+      "name": "auto-deco",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-20T02:37:43Z",
+          "completed_at": "2026-11-20T02:37:46Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-20T02:37:46Z",
+          "completed_at": "2026-11-20T02:37:51Z"
+        },
+        {
+          "name": "Build",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 3,
+          "started_at": "2026-11-20T02:37:51Z",
+          "completed_at": "2026-11-20T02:39:19Z"
+        },
+        {
+          "name": "Upload",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-11-20T02:39:19Z",
+          "completed_at": "2026-11-20T02:39:19Z"
+        },
+        {
+          "name": "Post Build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-20T02:39:19Z",
+          "completed_at": "2026-11-20T02:39:36Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-20T02:39:36Z",
+          "completed_at": "2026-11-20T02:39:38Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-20T02:39:38Z",
+          "completed_at": "2026-11-20T02:39:38Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/OnlyBrainrot/FB-s-mods-suck/check-runs/136042668105",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 1000000099,
+      "runner_name": "GitHub Actions 1000000099",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 136042668463,
+      "run_id": 44662146161,
+      "workflow_name": "Build mods (Windows)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/OnlyBrainrot/FB-s-mods-suck/actions/runs/44662146161",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVyfeXc8AAAAfrMZhrw",
+      "head_sha": "69bcc2e5b2311a6a15137babe487af34ec7000a3",
+      "url": "https://api.github.com/repos/OnlyBrainrot/FB-s-mods-suck/actions/jobs/136042668463",
+      "html_url": "https://github.com/OnlyBrainrot/FB-s-mods-suck/actions/runs/44662146161/job/136042668463",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-11-20T02:37:40Z",
+      "started_at": "2026-11-20T02:37:42Z",
+      "completed_at": "2026-11-20T02:39:02Z",
+      "name": "frame-window-counter",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-20T02:37:43Z",
+          "completed_at": "2026-11-20T02:37:44Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-20T02:37:44Z",
+          "completed_at": "2026-11-20T02:37:49Z"
+        },
+        {
+          "name": "Build",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 3,
+          "started_at": "2026-11-20T02:37:49Z",
+          "completed_at": "2026-11-20T02:38:55Z"
+        },
+        {
+          "name": "Upload",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-11-20T02:38:55Z",
+          "completed_at": "2026-11-20T02:38:55Z"
+        },
+        {
+          "name": "Post Build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-20T02:38:55Z",
+          "completed_at": "2026-11-20T02:38:58Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-20T02:38:58Z",
+          "completed_at": "2026-11-20T02:39:00Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-20T02:39:00Z",
+          "completed_at": "2026-11-20T02:39:01Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/OnlyBrainrot/FB-s-mods-suck/check-runs/136042668463",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 1000000100,
+      "runner_name": "GitHub Actions 1000000100",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 136043422838,
+      "run_id": 44662146161,
+      "workflow_name": "Build mods (Windows)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/OnlyBrainrot/FB-s-mods-suck/actions/runs/44662146161",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVyfeXc8AAAAfrNHkdg",
+      "head_sha": "69bcc2e5b2311a6a15137babe487af34ec7000a3",
+      "url": "https://api.github.com/repos/OnlyBrainrot/FB-s-mods-suck/actions/jobs/136043422838",
+      "html_url": "https://github.com/OnlyBrainrot/FB-s-mods-suck/actions/runs/44662146161/job/136043422838",
+      "status": "in_progress",
+      "conclusion": null,
+      "created_at": "2026-11-20T02:39:40Z",
+      "started_at": "2026-11-20T02:39:41Z",
+      "completed_at": null,
+      "name": "Publish failure logs",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/OnlyBrainrot/FB-s-mods-suck/check-runs/136043422838",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000000101,
+      "runner_name": "GitHub Actions 1000000101",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 136043425204,
+      "run_id": 44662146161,
+      "workflow_name": "Build mods (Windows)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/OnlyBrainrot/FB-s-mods-suck/actions/runs/44662146161",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVyfeXc8AAAAfrNHttA",
+      "head_sha": "69bcc2e5b2311a6a15137babe487af34ec7000a3",
+      "url": "https://api.github.com/repos/OnlyBrainrot/FB-s-mods-suck/actions/jobs/136043425204",
+      "html_url": "https://github.com/OnlyBrainrot/FB-s-mods-suck/actions/runs/44662146161/job/136043425204",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-11-20T02:39:40Z",
+      "started_at": "2026-11-20T02:39:40Z",
+      "completed_at": "2026-11-20T02:39:40Z",
+      "name": "Publish to builds branch",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/OnlyBrainrot/FB-s-mods-suck/check-runs/136043425204",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+322:2026-11-20T02:37:58.9868397Z (node:4380) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+780:2026-11-20T02:39:16.6843840Z C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\yvals_core.h:923:1: error: static assertion failed: error STL1000: Unexpected compiler version, expected Clang 22 or newer.
+781:2026-11-20T02:39:16.6847074Z   923 | _EMIT_STL_ERROR(STL1000, "Unexpected compiler version, expected Clang 22 or newer.");
+783:2026-11-20T02:39:16.6848853Z C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\yvals_core.h:537:58: note: expanded from macro '_EMIT_STL_ERROR'
+784:2026-11-20T02:39:16.6849958Z   537 | #define _EMIT_STL_ERROR(NUMBER, MESSAGE)   static_assert(false, "error " #NUMBER ": " MESSAGE)
+786:2026-11-20T02:39:16.6851102Z 1 error generated.
+794:2026-11-20T02:39:16.8921543Z C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\yvals_core.h:923:1: error: static assertion failed: error STL1000: Unexpected compiler version, expected Clang 22 or newer.
+795:2026-11-20T02:39:16.8922738Z   923 | _EMIT_STL_ERROR(STL1000, "Unexpected compiler version, expected Clang 22 or newer.");
+797:2026-11-20T02:39:16.8924260Z C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\yvals_core.h:537:58: note: expanded from macro '_EMIT_STL_ERROR'
+798:2026-11-20T02:39:16.8925828Z   537 | #define _EMIT_STL_ERROR(NUMBER, MESSAGE)   static_assert(false, "error " #NUMBER ": " MESSAGE)
+800:2026-11-20T02:39:16.8927056Z 1 error generated.
+809:2026-11-20T02:39:18.6414229Z C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\yvals_core.h:923:1: error: static assertion failed: error STL1000: Unexpected compiler version, expected Clang 22 or newer.
+810:2026-11-20T02:39:18.6414947Z   923 | _EMIT_STL_ERROR(STL1000, "Unexpected compiler version, expected Clang 22 or newer.");
+812:2026-11-20T02:39:18.6415854Z C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\yvals_core.h:537:58: note: expanded from macro '_EMIT_STL_ERROR'
+813:2026-11-20T02:39:18.6416447Z   537 | #define _EMIT_STL_ERROR(NUMBER, MESSAGE)   static_assert(false, "error " #NUMBER ": " MESSAGE)
+815:2026-11-20T02:39:18.6417040Z 1 error generated.
+827:2026-11-20T02:39:19.6811890Z C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\yvals_core.h:923:1: error: static assertion failed: error STL1000: Unexpected compiler version, expected Clang 22 or newer.
+828:2026-11-20T02:39:19.6813052Z   923 | _EMIT_STL_ERROR(STL1000, "Unexpected compiler version, expected Clang 22 or newer.");
+830:2026-11-20T02:39:19.6814211Z C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.52.37025\include\yvals_core.h:537:58: note: expanded from macro '_EMIT_STL_ERROR'
+831:2026-11-20T02:39:19.6814837Z   537 | #define _EMIT_STL_ERROR(NUMBER, MESSAGE)   static_assert(false, "error " #NUMBER ": " MESSAGE)
+833:2026-11-20T02:39:19.6815444Z 1 error generated.
+835:2026-11-20T02:39:19.6905196Z ##[error]Process completed with exit code 1.
+852:2026-11-20T02:39:20.0288699Z Cache read errors                     0
+854:2026-11-20T02:39:20.0289702Z Cache write errors                    0
+855:2026-11-20T02:39:20.0290032Z Cache errors                          0

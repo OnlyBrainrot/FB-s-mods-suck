@@ -7,7 +7,7 @@
     },
     "id": "opensource.auto-deco",
     "name": "Auto Deco",
-    "version": "v2.0.3",
+    "version": "v2.1.0",
     "developer": "Community",
     "description": "Pick a style and decorate your whole level: blocks, details, background, colours and pulses synced to the song.",
     "tags": ["editor", "utility", "offline"],
@@ -54,10 +54,10 @@
         "channel-base": {
             "type": "int",
             "name": "First colour channel",
-            "description": "Auto Deco uses 6 colour channels starting here (fill, outline, glow, details and two background colours), plus BG, Ground and Line. Pick channels your level does not use.",
+            "description": "Auto Deco uses 7 colour channels starting here (fill, outline, glow, details, two background colours and block patterns), plus BG, Ground and Line. Pick channels your level does not use.",
             "default": 990,
             "min": 1,
-            "max": 994
+            "max": 993
         },
         "color-triggers": {
             "type": "bool",

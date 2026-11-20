@@ -21,6 +21,7 @@
 #include <string>
 #include <thread>
 #include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 #include "beats.hpp"
@@ -100,24 +101,30 @@ Probe const& probe(int objectID) {
     return cache.emplace(objectID, p).first->second;
 }
 
-deco::EdgeAnchor itemFoot(int id) {
-    auto const& p = probe(id);
-    if (!p.shape.valid) return {deco::Down, deco::HALF};
-    return {deco::Down, -p.shape.minY};
-}
+deco::Shape shapeOf(int id) { return probe(id).shape; }
 
 // Drops details that are missing or not pure decoration (never adds hitboxes).
+// A custom detail goes if any of its shapes does.
 deco::Style safeStyle(deco::Style s) {
-    auto keep = [](std::vector<deco::Item>& items) {
-        std::erase_if(items, [](deco::Item const& it) {
-            auto const& p = probe(it.id);
-            return !p.exists || !p.safe;
+    auto usable = [](int id) {
+        auto const& p = probe(id);
+        return p.exists && p.safe;
+    };
+    auto keep = [&](std::vector<deco::Item>& items) {
+        std::erase_if(items, [&](deco::Item const& it) {
+            if (it.parts.empty()) return !usable(it.id);
+            for (auto const& part : it.parts) {
+                if (!usable(part.id)) return true;
+            }
+            return false;
         });
     };
     keep(s.top.items);
     keep(s.hang.items);
     keep(s.side.items);
     keep(s.ground.items);
+    keep(s.inner);
+    keep(s.structures);
     keep(s.background);
     return s;
 }
@@ -152,6 +159,30 @@ bool inGroup(GameObject* obj, int group) {
         if ((*obj->m_groups)[k] == group) return true;
     }
     return false;
+}
+
+// Group IDs nothing else in the level uses (objects or triggers), lowest first.
+std::vector<int> freeGroups(LevelEditorLayer* lel, size_t count) {
+    std::unordered_set<int> used;
+    const int tag = decoGroup();
+    used.insert(tag);
+    if (lel && lel->m_objects) {
+        for (auto obj : CCArrayExt<GameObject*>(lel->m_objects)) {
+            if (!obj || inGroup(obj, tag)) continue; // the old Auto Deco is replaced
+            if (obj->m_groups) {
+                for (int k = 0; k < obj->m_groupCount && k < 10; ++k) used.insert((*obj->m_groups)[k]);
+            }
+            if (auto effect = typeinfo_cast<EffectGameObject*>(obj)) {
+                used.insert(effect->m_targetGroupID);
+                used.insert(effect->m_centerGroupID);
+            }
+        }
+    }
+    std::vector<int> out;
+    for (int g = 1; g < 10000 && out.size() < count; ++g) {
+        if (!used.contains(g)) out.push_back(g);
+    }
+    return out;
 }
 
 std::vector<GameObject*> taggedObjects(LevelEditorLayer* lel) {
@@ -509,7 +540,7 @@ void restoreStartColors(LevelEditorLayer* lel, std::vector<ColorSnapshot> const&
 struct Choice {
     int style = 0;
     deco::Palette palette;
-    bool blocks = true, details = true, background = true, pulses = true, selectionOnly = false;
+    bool blocks = true, details = true, background = true, pulses = true, animate = true, selectionOnly = false;
     unsigned seed = 1;
 };
 
@@ -522,6 +553,7 @@ Choice& choice() {
         c.details = Mod::get()->getSavedValue<bool>("details", true);
         c.background = Mod::get()->getSavedValue<bool>("background", true);
         c.pulses = Mod::get()->getSavedValue<bool>("pulses", true);
+        c.animate = Mod::get()->getSavedValue<bool>("animate", true);
         return c;
     }();
     return c;
@@ -534,6 +566,7 @@ void saveChoice() {
     Mod::get()->setSavedValue("details", c.details);
     Mod::get()->setSavedValue("background", c.background);
     Mod::get()->setSavedValue("pulses", c.pulses);
+    Mod::get()->setSavedValue("animate", c.animate);
 }
 
 // What the last decoration changed, so a preview can be undone exactly.
@@ -575,12 +608,17 @@ std::string applyChoice(EditorUI* ui, deco::Counts* counts, size_t* created) {
     p.solid = std::move(cells);
     p.origin = origin;
     p.anchors = buildAnchors(style);
-    p.itemFoot = itemFoot;
+    p.shapeOf = shapeOf;
     p.seed = c.seed * 2654435761u + static_cast<unsigned>(c.style);
-    p.fill = p.outline = p.glow = c.blocks;
+    p.fill = p.outline = p.glow = p.inner = c.blocks;
     p.top = p.hang = p.side = p.ground = c.details;
-    p.background = c.background;
-    p.channels = deco::Channels(std::clamp(settingInt("channel-base"), 1, 994));
+    p.background = p.structures = c.background;
+    p.animate = c.animate;
+    if (c.animate) {
+        p.animGroups = freeGroups(lel, deco::ANIM_GROUPS);
+        if (p.animGroups.size() < deco::ANIM_GROUPS) log::warn("Auto Deco: not enough free groups for the animation");
+    }
+    p.channels = deco::Channels(std::clamp(settingInt("channel-base"), 1, 1000 - deco::CHANNEL_COUNT));
     p.colorTriggers = settingBool("color-triggers");
     p.pulses = c.pulses;
     if (c.pulses) {
@@ -776,6 +814,7 @@ protected:
         this->addToggle("Background", &c.background, {270.f, 112.f});
         this->addToggle("Song pulses", &c.pulses, {60.f, 84.f});
         this->addToggle("Only selection", &c.selectionOnly, {165.f, 84.f});
+        this->addToggle("Animation", &c.animate, {270.f, 84.f});
 
         m_beat = CCLabelBMFont::create("", "chatFont.fnt");
         m_beat->setScale(0.65f);
@@ -894,8 +933,8 @@ protected:
         if (created < counts.total()) {
             notify(fmt::format("Auto Deco: only {} of {} objects were created", created, counts.total()), NotificationIcon::Warning);
         } else {
-            notify(fmt::format("Auto Deco: added {} objects ({} details, {} background, {} triggers)", created, counts.details,
-                               counts.background, counts.triggers),
+            notify(fmt::format("Auto Deco: added {} objects ({} details, {} patterns, {} background, {} moving, {} triggers)", created,
+                               counts.details, counts.inner, counts.background + counts.structures, counts.animated, counts.triggers),
                    NotificationIcon::Success);
         }
         this->onClose(nullptr);

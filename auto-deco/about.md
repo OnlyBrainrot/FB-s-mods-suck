@@ -9,9 +9,10 @@ Build the layout, Auto Deco decorates it.
 
 What a style adds:
 
-- **Blocks**: fill, outline and glow around every structure.
-- **Details**: thorns, grass, chains, icicles and more on top of, under and beside your blocks, and along the ground.
-- **Background**: clouds, gears, stars, particles and pulsing rings behind the level.
+- **Blocks**: fill, outline and glow around every structure, and patterns inside big block masses.
+- **Details**: lamps, crystals, trees, fences, banners, icicles, vines and more, built from shapes. They go on longer surfaces with open air in front, evenly spaced, and stay out of tight corridors and off single blocks.
+- **Background**: towers, mountains, pillars, trees and ruins standing behind the level, plus clouds, gems, stars and rings in the sky.
+- **Animation**: background objects float up and down and spin, driven by move and rotate triggers (switch it off with **Animation**).
 - **Colours**: background, ground, line and the style's own colour channels.
 - **Song pulses**: the outline, glow and background flash on the beat. Beats come from your guidelines, or Auto Deco listens to the song and finds them itself.
 

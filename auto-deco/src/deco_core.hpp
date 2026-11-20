@@ -207,14 +207,29 @@ inline float positiveMod(float v, float m) {
     return r < 0.f ? r + m : r;
 }
 
+// How many grid cells a hitbox spans along one axis. Hitboxes are often a
+// little smaller than the cell they fill; anything under ~3/4 of a cell
+// (slabs, half blocks) counts as no cell at all.
+inline int cellSpan(float size) {
+    return static_cast<int>(std::floor(size / CELL + 0.25f));
+}
+
+// Corner of the cells a hitbox fills, measured from its centre.
+inline Vec snappedCorner(const Rect& r) {
+    const float cx = (r.minX + r.maxX) / 2.f, cy = (r.minY + r.maxY) / 2.f;
+    return Vec{cx - cellSpan(r.maxX - r.minX) * HALF, cy - cellSpan(r.maxY - r.minY) * HALF};
+}
+
 // Blocks don't have to sit on the editor's default grid: the grid phase is taken
-// from the most common block alignment in the selection.
+// from the most common block alignment.
 inline Vec gridOrigin(const std::vector<Rect>& rects) {
     std::map<int, int> histX, histY;
     for (const auto& r : rects) {
+        if (cellSpan(r.maxX - r.minX) < 1 || cellSpan(r.maxY - r.minY) < 1) continue;
+        const Vec c = snappedCorner(r);
         // quantise to half units; 60 half-units wrap around to 0
-        histX[static_cast<int>(std::lround(positiveMod(r.minX, CELL) * 2.f)) % 60]++;
-        histY[static_cast<int>(std::lround(positiveMod(r.minY, CELL) * 2.f)) % 60]++;
+        histX[static_cast<int>(std::lround(positiveMod(c.x, CELL) * 2.f)) % 60]++;
+        histY[static_cast<int>(std::lround(positiveMod(c.y, CELL) * 2.f)) % 60]++;
     }
     auto best = [](const std::map<int, int>& hist) {
         int key = 0, count = -1;
@@ -229,17 +244,18 @@ inline Vec gridOrigin(const std::vector<Rect>& rects) {
     return Vec{best(histX), best(histY)};
 }
 
-// Every grid cell that is completely covered by one of the rects.
-inline CellSet cellsFromRects(const std::vector<Rect>& rects, Vec origin, std::size_t maxCells = 200000) {
+// The grid cells each block fills, judged from its centre and size, so hitboxes
+// slightly smaller than a cell still count.
+inline CellSet cellsFromRects(const std::vector<Rect>& rects, Vec origin, std::size_t maxCells = 400000) {
     CellSet cells;
-    const float tol = 1.f;
     for (const auto& r : rects) {
-        const int i0 = static_cast<int>(std::ceil((r.minX - origin.x - tol) / CELL));
-        const int i1 = static_cast<int>(std::floor((r.maxX - origin.x + tol) / CELL)) - 1;
-        const int j0 = static_cast<int>(std::ceil((r.minY - origin.y - tol) / CELL));
-        const int j1 = static_cast<int>(std::floor((r.maxY - origin.y + tol) / CELL)) - 1;
-        for (int i = i0; i <= i1; ++i) {
-            for (int j = j0; j <= j1; ++j) {
+        const int nx = cellSpan(r.maxX - r.minX), ny = cellSpan(r.maxY - r.minY);
+        if (nx < 1 || ny < 1) continue;
+        const Vec c = snappedCorner(r);
+        const int i0 = static_cast<int>(std::lround((c.x - origin.x) / CELL));
+        const int j0 = static_cast<int>(std::lround((c.y - origin.y) / CELL));
+        for (int i = i0; i < i0 + nx; ++i) {
+            for (int j = j0; j < j0 + ny; ++j) {
                 cells.insert({i, j});
                 if (cells.size() >= maxCells) return cells;
             }

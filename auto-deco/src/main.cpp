@@ -15,6 +15,7 @@
 #include <algorithm>
 #include <cstring>
 #include <filesystem>
+#include <map>
 #include <mutex>
 #include <optional>
 #include <string>
@@ -62,7 +63,8 @@ void notify(std::string const& text, NotificationIcon icon = NotificationIcon::I
 
 struct Probe {
     bool exists = false;
-    bool decoration = false;
+    bool safe = false; // no gameplay effect once marked No Touch
+    int type = -1;
     deco::Shape shape;
 };
 
@@ -74,7 +76,11 @@ Probe const& probe(int objectID) {
     constexpr int SIZE = 160; // points; big enough for 2x decoration pieces
     if (auto obj = GameObject::createWithKey(objectID)) {
         p.exists = true;
-        p.decoration = obj->m_objectType == GameObjectType::Decoration;
+        p.type = static_cast<int>(obj->m_objectType);
+        // Plain blocks and decoration only: never hazards, portals, pads, orbs,
+        // coins, triggers or slopes. Everything placed is No Touch, so a
+        // block-type decoration piece has no collision either.
+        p.safe = obj->m_objectType == GameObjectType::Solid || obj->m_objectType == GameObjectType::Decoration;
         if (auto rt = CCRenderTexture::create(SIZE, SIZE)) {
             obj->setPosition({SIZE / 2.f, SIZE / 2.f});
             obj->setRotation(0.f);
@@ -90,7 +96,7 @@ Probe const& probe(int objectID) {
         }
     }
     if (!p.exists) log::warn("object {} does not exist in this version of the game", objectID);
-    else if (!p.decoration) log::info("object {} is not pure decoration; Auto Deco will not use it as a detail", objectID);
+    else if (!p.safe) log::info("object {} has gameplay type {}; Auto Deco will not use it", objectID, p.type);
     return cache.emplace(objectID, p).first->second;
 }
 
@@ -105,7 +111,7 @@ deco::Style safeStyle(deco::Style s) {
     auto keep = [](std::vector<deco::Item>& items) {
         std::erase_if(items, [](deco::Item const& it) {
             auto const& p = probe(it.id);
-            return !p.exists || !p.decoration;
+            return !p.exists || !p.safe;
         });
     };
     keep(s.top.items);
@@ -158,24 +164,37 @@ std::vector<GameObject*> taggedObjects(LevelEditorLayer* lel) {
     return out;
 }
 
+// Layout blocks: solid objects with a real hitbox, not No Touch, not ours.
 std::vector<deco::Rect> solidRects(CCArray* objects) {
     std::vector<deco::Rect> rects;
     if (!objects) return rects;
     const int group = decoGroup();
+    int solidType = 0, noHitbox = 0, skipped = 0, rotated = 0;
+    std::map<std::string, int> sizes;
     for (auto obj : CCArrayExt<GameObject*>(objects)) {
-        if (!obj || obj->m_objectType != GameObjectType::Solid || inGroup(obj, group)) continue;
+        if (!obj || obj->m_objectType != GameObjectType::Solid) continue;
+        ++solidType;
+        if (inGroup(obj, group) || obj->m_isNoTouch) {
+            ++skipped;
+            continue;
+        }
         const float rot = std::fmod(std::fabs(obj->getRotation()), 90.f);
-        if (rot > 0.5f && rot < 89.5f) continue;
-
+        if (rot > 0.5f && rot < 89.5f) {
+            ++rotated;
+            continue;
+        }
         CCRect r = obj->getObjectRect();
         if (r.size.width < 1.f || r.size.height < 1.f) {
-            CCSize size = obj->getScaledContentSize();
-            if (std::fabs(std::fmod(std::fabs(obj->getRotation()), 180.f) - 90.f) < 0.5f) std::swap(size.width, size.height);
-            CCPoint pos = obj->getPosition();
-            r = CCRect(pos.x - size.width / 2.f, pos.y - size.height / 2.f, size.width, size.height);
+            ++noHitbox; // decoration-only blocks have no hitbox
+            continue;
         }
+        if (sizes.size() < 12) sizes[fmt::format("{:.0f}x{:.0f}", r.size.width, r.size.height)]++;
         rects.push_back({r.getMinX(), r.getMinY(), r.getMaxX(), r.getMaxY()});
     }
+    std::string sizeList;
+    for (auto const& [k, v] : sizes) sizeList += fmt::format(" {}:{}", k, v);
+    log::info("Auto Deco: {} block-type objects: {} with a hitbox, {} without, {} No Touch/ours, {} rotated; sizes{}",
+              solidType, rects.size(), noHitbox, skipped, rotated, sizeList);
     return rects;
 }
 
@@ -580,7 +599,7 @@ std::string applyChoice(EditorUI* ui, deco::Counts* counts, size_t* created) {
     }
     if (objs.empty()) return "Nothing to add: every part is switched off.";
 
-    const std::string data = deco::toLevelString(objs, decoGroup(), settingInt("editor-layer"), settingBool("no-touch"));
+    const std::string data = deco::toLevelString(objs, decoGroup(), settingInt("editor-layer"), true);
     log::info("Auto Deco: style '{}', {} solid cells from {} blocks, building {} objects ({} chars)", style.name,
               p.solid.size(), rects.size(), objs.size(), data.size());
 

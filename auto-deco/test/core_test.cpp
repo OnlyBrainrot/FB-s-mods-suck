@@ -151,6 +151,15 @@ int main() {
     CHECK(near(so.x, 7) && near(so.y, 5));
     CHECK(cellsFromRects(shifted, so).size() == 2);
 
+    // hitboxes a little smaller than the cell still fill it; half blocks don't
+    {
+        std::vector<Rect> inset = {{1, 91, 29, 119}, {31, 91, 59, 119}, {61, 90, 91, 105}};
+        Vec o = gridOrigin(inset);
+        CHECK(near(o.x, 0) && near(o.y, 0));
+        CellSet c = cellsFromRects(inset, o);
+        CHECK(c.size() == 2 && c.count({0, 3}) && c.count({1, 3}));
+    }
+
     // a 2x scaled block covers four cells
     CHECK(cellsFromRects({{0, 0, 60, 60}}, {0, 0}).size() == 4);
 

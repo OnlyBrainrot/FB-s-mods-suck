@@ -7,7 +7,7 @@
     },
     "id": "opensource.auto-deco",
     "name": "Auto Deco",
-    "version": "v2.0.2",
+    "version": "v2.0.3",
     "developer": "Community",
     "description": "Pick a style and decorate your whole level: blocks, details, background, colours and pulses synced to the song.",
     "tags": ["editor", "utility", "offline"],
@@ -72,12 +72,6 @@
             "default": 0,
             "min": 0,
             "max": 9999
-        },
-        "no-touch": {
-            "type": "bool",
-            "name": "No Touch",
-            "description": "Mark decoration as No Touch so it can never change gameplay.",
-            "default": true
         },
         "max-objects": {
             "type": "int",
